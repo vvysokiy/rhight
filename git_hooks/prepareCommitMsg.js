@@ -2,9 +2,8 @@ const fs = require('fs');
 const colors = require('colors'); // eslint-disable-line import/no-extraneous-dependencies
 
 const getIssueLink = (taskName) => {
-  console.log('getIssueLink -> taskName', taskName);
-
-  return `[${taskName}](https://github.com/vvysokiy/rhight/issues/${taskName})`;
+  const number = taskName.split('issue-')[1];
+  return `[${taskName}](https://github.com/vvysokiy/rhight/issues/${number})`;
 };
 
 const TAG_TYPE = '(Fix|New|Upgrade|Chore)';
