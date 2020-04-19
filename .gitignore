@@ -1,0 +1,9 @@
+node_modules/
+.cache
+.vscode
+.idea
+.DS_Store
+dist
+*.log
+lerna-debug.log
+storybook-static

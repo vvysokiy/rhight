@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@rhight/*": ["./packages/*"],
+      // "@utils/*": ["./src/utils/*"],
+      // "@styles/*": ["./packages/*"],
+      // "@constants/*": ["./src/constants/*"],
+    },
+    "jsx": "react",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "lib": ["es2017", "dom"],
+    "noImplicitAny": false,
+    "resolveJsonModule": true
+  },
+  "files": [
+    "src/assets.d.ts",
+    // "src/window.d.ts",
+    // "src/global.d.ts",
+    // ".storybook/types.d.ts"
+  ],
+  "include": [
+    "packages/**/*",
+    // "packages/__tests__/**/*",
+    // "stories/**/*",
+  ],
+  "exclude": [
+    "node_modules",
+    // "packages/**/index.d.ts",
+    // "packages/**/__tests__/*"
+  ]
+}
