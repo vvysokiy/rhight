@@ -21,10 +21,10 @@
 #### Правильные варианты сообщений:
 
 1. {Тип изменений}: {информация о содержании коммита}
-    - Пример: Fix: very long commit message
-    - Пример: Chore: very long commit message
+    - Пример: Fix: issue-1 very long commit message
+    - Пример: Chore: issue-1 very long commit message
 2. WIP: {информация о содержании коммита}
-    - Пример: WIP: commit message
+    - Пример: WIP: issue-1 commit message
 
 #### Commit squash
 
