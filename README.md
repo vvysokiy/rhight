@@ -11,8 +11,8 @@
 
 [Правила именований коммитов](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-eslint)
 
-- <p>Используемые теги из правил: <span style={{ background: "chartreuse" }}>Fix, New, Upgrade, Chore</span></p>
-- <p>Дополнительный тег для разработки: <span style={{ background: "chocolate" }}>WIP</span></p>
+- <p>Используемые теги из правил: <span style="background:chartreuse">Fix, New, Upgrade, Chore</span></p>
+- <p>Дополнительный тег для разработки: <span style="background:chocolate">WIP</span></p>
 
 Тег WIP необходим для разработки, но коммиты с этим тегом не попадут в changelog
 
