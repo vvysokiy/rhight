@@ -4,7 +4,7 @@ const colors = require('colors'); // eslint-disable-line import/no-extraneous-de
 const getIssueLink = (taskName) => {
   console.log('getIssueLink -> taskName', taskName);
 
-  return `[${taskName}](/vvysokiy/rhight/issues/${taskName})`;
+  return `[${taskName}](https://github.com/vvysokiy/rhight/issues/${taskName})`;
 };
 
 const TAG_TYPE = '(Fix|New|Upgrade|Chore)';
