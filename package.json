@@ -1,0 +1,70 @@
+{
+  "name": "rhight",
+  "version": "0.0.0",
+  "description": "react hooks lib",
+  "main": "index.js",
+  "scripts": {
+    "version-bump": "lerna version --conventional-commits --tag-version-prefix='' --changelog-preset eslint",
+    "storybook": "start-storybook -p 3000 -s ./cdn/src",
+    "build": "lerna exec --parallel -- webpack -p --config=../../webpack.config.js"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "node ./git_hooks/prepareCommitMsg.js"
+    }
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@storybook/react": "^5.3.18",
+    "@svgr/webpack": "^5.3.1",
+    "@types/classnames": "^2.2.10",
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.1.0",
+    "colors": "^1.4.0",
+    "conventional-changelog-eslint": "^3.0.4",
+    "css-loader": "^2.1.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^3.0.0",
+    "husky": "^4.2.1",
+    "lerna": "^3.20.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-mixins": "^6.2.3",
+    "postcss-nested": "^4.2.1",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-simple-vars": "^5.0.2",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "style-loader": "^1.1.4",
+    "stylelint": "^13.3.2",
+    "stylelint-config-css-modules": "^2.2.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-csstree-validator": "^1.8.0",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "author": "Vladimir Vysokiy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vvysokiy/lerna-boilerplate/issues"
+  },
+  "homepage": "https://github.com/vvysokiy/lerna-boilerplate#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vvysokiy/lerna-boilerplate.git"
+  }
+}
