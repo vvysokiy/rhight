@@ -1,4 +1,4 @@
-import { HelloWorld } from '@rhight/hello-world';
+import HelloWorld from '@rhight/hello-world';
 
 export default {
   title: 'Components/HelloWorld',
