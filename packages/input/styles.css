@@ -1,0 +1,32 @@
+@import "base.css";
+
+.input-wrapper {
+  font-family: var(--roboto);
+  font-size: 13px;
+  color: var(--colorBlack);
+}
+
+.label-input {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.text-input {
+  width: 100%;
+  border: 1px solid var(--colorBlack);
+  box-sizing: border-box;
+  line-height: 25px;
+
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid var(--colorInputBottomBlue);
+  }
+}
+
+.default {
+  padding: 10px 15px;
+}
+
+.small {
+  padding: 5px 15px;
+}
