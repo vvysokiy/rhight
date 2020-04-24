@@ -1,11 +1,11 @@
-declare module "@rhight/input" {
+declare module '@rhight/input' {
   export interface IInput {
     value: string;
-    height: "small" | "default";
     onChange: (newValue: string) => void;
-    labelId?: string;
+    size?: 'small' | 'default';
     label?: string;
     placeholder?: string;
+    type?: 'text';
     isDisabled?: boolean;
   }
 

@@ -1,8 +1,8 @@
-import Input from "@rhight/input";
+import Input from '@rhight/input';
 
 export default {
-  title: "Components/Input",
+  title: 'Components/Input',
   component: Input,
 };
 
-export * from "./default.story";
+export * from './default.story';

@@ -1,25 +1,60 @@
 @import "base.css";
 
-.input-wrapper {
+.wrapper {
+  position: relative;
   font-family: var(--roboto);
   font-size: 13px;
   color: var(--colorBlack);
 }
 
-.label-input {
+.label {
   display: block;
   margin-bottom: 10px;
 }
 
-.text-input {
+.disabledLabel {
+  color: var(--colorGreyDisabled);
+}
+
+.input {
   width: 100%;
-  border: 1px solid var(--colorBlack);
+  border: 1px solid var(--colorGreyDisabled);
+  border-radius: 1px;
   box-sizing: border-box;
   line-height: 25px;
+  transition: border 200ms;
+
+  &:hover {
+    border-color: var(--colorGrey);
+  }
+
+  &::placeholder {
+    color: var(--colorGrey);
+  }
+
+  &:disabled {
+    background-color: transparent;
+    color: var(--colorGreyDisabled);
+    border-color: var(--colorGreyDisabled);
+  }
+
+  &:disabled::placeholder {
+    color: var(--colorGreyDisabled);
+  }
 
   &:focus {
     outline: none;
-    border-bottom: 2px solid var(--colorInputBottomBlue);
+    border-color: var(--colorGreyDisabled);
+  }
+
+  /* &:focus + .inputUnderline {
+    transform: none;
+    border-color: var(--colorBlue);
+  } */
+
+  &:focus::placeholder {
+    color: var(--colorGreyDisabled);
+    transition: color 0.2s;
   }
 }
 
@@ -29,4 +64,23 @@
 
 .small {
   padding: 5px 15px;
+}
+
+.inputUnderline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 0 solid transparent;
+  border-width: 0 0 2px;
+  pointer-events: none;
+  transform: scaleX(0.6) scaleY(0);
+  transform-origin: center bottom;
+  transition: all 150ms linear;
+}
+
+.input:focus + .inputUnderline {
+  transform: none;
+  border-color: var(--colorBlue);
 }
