@@ -47,11 +47,6 @@
     border-color: var(--colorGreyDisabled);
   }
 
-  /* &:focus + .inputUnderline {
-    transform: none;
-    border-color: var(--colorBlue);
-  } */
-
   &:focus::placeholder {
     color: var(--colorGreyDisabled);
     transition: color 0.2s;
