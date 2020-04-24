@@ -14,7 +14,7 @@
   },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "node ./git_hooks/prepareCommitMsg.js && npm run eslint && npm run stylelint"
+      "prepare-commit-msg": "node ./git_hooks/prepareCommitMsg.js && npm run tsc && npm run eslint && npm run stylelint"
     }
   },
   "dependencies": {
