@@ -11,8 +11,8 @@ export const Default = () => {
       <Input
         value={value}
         onChange={onChange}
-        label='Header'
-        placeholder='Placeholder'
+        label="Header"
+        placeholder="Placeholder"
       />
     </div>
   );

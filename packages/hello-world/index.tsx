@@ -16,9 +16,7 @@ const HelloWorld: React.FC<IHelloWorld> = ({
 
   const onClick = useCallback(() => toggle(!activeBtn), [activeBtn]);
 
-  useResize(() => {
-    console.log('hello bro');
-  });
+  useResize(() => {});
 
   return (
     <div className={s.root}>

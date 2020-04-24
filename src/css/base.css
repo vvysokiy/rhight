@@ -1,2 +1,12 @@
 @import "colors";
 @import "typography";
+
+@define-mixin resetBtn {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: none;
+  cursor: pointer;
+}

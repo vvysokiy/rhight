@@ -1,5 +1,5 @@
-import React, { useState, useCallback } from "react";
-import cn from "classnames";
+import React, { useCallback } from 'react';
+import cn from 'classnames';
 
 import { IInput } from '@rhight/input';
 
@@ -19,7 +19,7 @@ const Input: React.FC<IInput> = ({
       const newValue = (e.target as HTMLInputElement).value;
       onChange(newValue);
     },
-    [onChange]
+    [onChange],
   );
 
   return (
@@ -35,7 +35,7 @@ const Input: React.FC<IInput> = ({
         placeholder={placeholder}
         disabled={isDisabled}
       />
-      <div className={s.inputUnderline}></div>
+      <div className={s.inputUnderline} />
     </div>
   );
 };
