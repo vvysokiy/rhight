@@ -17,7 +17,7 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
     "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
     'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
-    // 'react/jsx-props-no-spreading': 0,
+    'react/jsx-props-no-spreading': 0,
     'react/prop-types': 0,
     // 'react/state-in-constructor': 0,
     // 'react/static-property-placement': 0,
@@ -33,6 +33,11 @@ module.exports = {
     // 'jsx-a11y/click-events-have-key-events': 0,
     // 'jsx-a11y/no-static-element-interactions': 0,
     // 'jsx-a11y/alt-text': 0
+    'jsx-a11y/label-has-associated-control': [ 2, {
+      "required": {
+          "some": [ "nesting", "id" ]
+      }
+    }]
   },
   globals: {
     // IntersectionObserver: true,
