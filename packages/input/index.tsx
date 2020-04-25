@@ -9,8 +9,8 @@ const Input: React.FC<IInput> = ({
   value,
   onChange,
   size = 'default',
-  label,
-  placeholder,
+  label = '',
+  placeholder = '',
   type = 'text',
   isDisabled = false,
 }) => {

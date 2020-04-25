@@ -1,9 +1,13 @@
 :root {
   --colorWhite: #fff;
   --colorBlack: #262626;
+  --colorDarkBlue: #274bc8;
   --colorBlue: #315efb;
-  --colorGreyDisabled: #dcdfe7;
+  --colorLightBlue: #2f93ff;
   --colorGrey: #b0b4c2;
   --colorPaleGrey: #f3f4f7;
   --colorLightGray: #dcdfe7;
+  --colorPearlGrey: #c6cad8;
+  --colorDisabled: #afb6c9;
+  --colorDisabledBorder: #e9e9f1;
 }

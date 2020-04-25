@@ -1,0 +1,51 @@
+@import "base.css";
+
+.checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+
+  & + .label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+  }
+
+  & + .label::before {
+    content: '';
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border: 2px solid var(--colorWhite);
+    outline: 1px solid var(--colorLightGray);
+    background-color: var(--colorWhite);
+    transition: outline-color .1s linear, background-color .1s linear;
+  }
+
+  &:checked + label::before {
+    content: '';
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border: 2px solid var(--colorWhite);
+    outline: 1px solid var(--colorLightGray);
+    background-color: var(--colorLightBlue);
+  }
+
+  &:not(:disabled):not(:checked) + label:hover::before {
+    outline: 1px solid var(--colorPearlGrey);
+  }
+
+  &:not(:disabled):checked + label:hover::before {
+    outline: 1px solid var(--colorPearlGrey);
+    background-color: var(--colorDarkBlue);
+  }
+
+  &:disabled + label::before {
+    background-color: var(--colorDisabled);
+    outline: 1px solid var(--colorDisabledBorder);
+    border: 2px solid var(--colorDisabledBorder);
+  }
+}
+
+
