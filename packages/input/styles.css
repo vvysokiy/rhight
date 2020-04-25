@@ -16,6 +16,20 @@
   color: var(--colorLightGray);
 }
 
+.inputUnderline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 0 solid transparent;
+  border-width: 0 0 2px;
+  pointer-events: none;
+  transform: scaleX(0.6) scaleY(0);
+  transform-origin: center bottom;
+  transition: all 150ms linear;
+}
+
 .input {
   width: 100%;
   border: 1px solid var(--colorLightGray);
@@ -65,18 +79,3 @@
 .small {
   padding: 4px 14px;
 }
-
-.inputUnderline {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 0 solid transparent;
-  border-width: 0 0 2px;
-  pointer-events: none;
-  transform: scaleX(0.6) scaleY(0);
-  transform-origin: center bottom;
-  transition: all 150ms linear;
-}
-

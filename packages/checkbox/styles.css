@@ -19,7 +19,7 @@
     border: 2px solid var(--colorWhite);
     outline: 1px solid var(--colorLightGray);
     background-color: var(--colorWhite);
-    transition: outline-color .1s linear, background-color .1s linear;
+    transition: outline-color 100ms linear, background-color 100ms linear;
   }
 
   &:checked + label::before {
@@ -32,6 +32,12 @@
     background-color: var(--colorLightBlue);
   }
 
+  &:disabled + label::before {
+    background-color: var(--colorDisabled);
+    outline: 1px solid var(--colorDisabledBorder);
+    border: 2px solid var(--colorDisabledBorder);
+  }
+
   &:not(:disabled):not(:checked) + label:hover::before {
     outline: 1px solid var(--colorPearlGrey);
   }
@@ -40,12 +46,4 @@
     outline: 1px solid var(--colorPearlGrey);
     background-color: var(--colorDarkBlue);
   }
-
-  &:disabled + label::before {
-    background-color: var(--colorDisabled);
-    outline: 1px solid var(--colorDisabledBorder);
-    border: 2px solid var(--colorDisabledBorder);
-  }
 }
-
-
