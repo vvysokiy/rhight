@@ -15,39 +15,60 @@
 }
 
 .customCheckbox {
-  width: 10px;
-  height: 10px;
+  position: relative;
+  width: 14px;
+  height: 14px;
   margin-right: 13px;
-  border: 2px solid var(--colorWhite);
-  outline: 1px solid var(--colorLightGray);
+  border: 1px solid var(--colorLightGray);
+  border-radius: 1px;
   background-color: var(--colorWhite);
-  transition: outline-color 100ms linear, background-color 100ms linear, border-color 100ms linear;
+  transition: background-color 100ms linear, border-color 100ms linear;
   cursor: pointer;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    margin: auto;
+    border-radius: 1px;
+    transition: background-color 100ms linear;
+  }
 }
 
 .checkbox {
   display: none;
 
-  &:checked + .customCheckbox {
-    width: 10px;
-    height: 10px;
-    border: 2px solid var(--colorWhite);
-    outline: 1px solid var(--colorLightGray);
+  &:disabled + .customCheckbox::after {
+    background-color: var(--colorDisabled);
+  }
+
+  &:checked + .customCheckbox::after {
     background-color: var(--colorLightBlue);
   }
 
   &:disabled + .customCheckbox {
-    background-color: var(--colorDisabled);
-    outline: 1px solid var(--colorDisabledBorder);
-    border: 2px solid var(--colorDisabledBorder);
+    background-color: var(--colorDisabledBorder);
+    border-color: var(--colorDisabledBorder);
+  }
+
+  &:checked + .customCheckbox:hover {
+    border-color: var(--colorPearlGrey);
+  }
+
+  &:checked + .customCheckbox:hover::after {
+    background-color: var(--colorDarkBlue);
   }
 
   &:not(:disabled):not(:checked) + .customCheckbox:hover {
-    outline: 1px solid var(--colorPearlGrey);
+    border-color: var(--colorPearlGrey);
   }
 
-  &:not(:disabled):checked + .customCheckbox:hover {
-    outline: 1px solid var(--colorPearlGrey);
-    border-color: var(--colorDisabledBorder);
+  &:not(:disabled):checked:active + .customCheckbox {
+    background-color: var(--colorDisabledBorder);
   }
 }
