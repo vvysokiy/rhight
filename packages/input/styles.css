@@ -1,4 +1,4 @@
-@import "base.css";
+@import 'base.css';
 
 .wrapper {
   position: relative;
@@ -13,52 +13,7 @@
 }
 
 .disabledLabel {
-  color: var(--colorGreyDisabled);
-}
-
-.input {
-  width: 100%;
-  border: 1px solid var(--colorGreyDisabled);
-  border-radius: 1px;
-  box-sizing: border-box;
-  line-height: 25px;
-  transition: border 200ms;
-
-  &:hover {
-    border-color: var(--colorGrey);
-  }
-
-  &::placeholder {
-    color: var(--colorGrey);
-  }
-
-  &:disabled {
-    background-color: transparent;
-    color: var(--colorGreyDisabled);
-    border-color: var(--colorGreyDisabled);
-  }
-
-  &:disabled::placeholder {
-    color: var(--colorGreyDisabled);
-  }
-
-  &:focus {
-    outline: none;
-    border-color: var(--colorGreyDisabled);
-  }
-
-  &:focus::placeholder {
-    color: var(--colorGreyDisabled);
-    transition: color 0.2s;
-  }
-}
-
-.default {
-  padding: 10px 15px;
-}
-
-.small {
-  padding: 5px 15px;
+  color: var(--colorLightGray);
 }
 
 .inputUnderline {
@@ -75,7 +30,52 @@
   transition: all 150ms linear;
 }
 
-.input:focus + .inputUnderline {
-  transform: none;
-  border-color: var(--colorBlue);
+.input {
+  width: 100%;
+  border: 1px solid var(--colorLightGray);
+  border-radius: 1px;
+  box-sizing: border-box;
+  line-height: 25px;
+  transition: border 200ms;
+
+  &:hover {
+    border-color: var(--colorGrey);
+  }
+
+  &::placeholder {
+    color: var(--colorGrey);
+  }
+
+  &:disabled {
+    background-color: transparent;
+    color: var(--colorLightGray);
+    border-color: var(--colorLightGray);
+  }
+
+  &:disabled::placeholder {
+    color: var(--colorLightGray);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--colorLightGray);
+  }
+
+  &:focus + .inputUnderline {
+    transform: none;
+    border-color: var(--colorBlue);
+  }
+
+  &:focus::placeholder {
+    color: var(--colorLightGray);
+    transition: color 0.2s;
+  }
+}
+
+.default {
+  padding: 9px 14px;
+}
+
+.small {
+  padding: 4px 14px;
 }
