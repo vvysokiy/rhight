@@ -9,8 +9,9 @@ const Checkbox: React.FC<ICheckbox> = ({
   onChange,
   isDisabled = false,
   label = '',
+  type = 'checkbox',
 }) => {
-  const onLocalChange = useCallback(
+  const onChangeLocal = useCallback(
     (e: React.SyntheticEvent) => {
       const newValue = !(e.target as HTMLInputElement).checked;
       onChange(newValue);
@@ -19,9 +20,18 @@ const Checkbox: React.FC<ICheckbox> = ({
   );
 
   return (
-    <div className={s.wrapper}>
-      <input type="checkbox" className={s.checkbox} checked={checked} onChange={onLocalChange} disabled={isDisabled} id="custom-checkbox" />
-      <label htmlFor="custom-checkbox" className={s.label}>{label}</label>
+    <div className={s.root}>
+      <label className={s.label}>
+        <input
+          type={type}
+          className={s.checkbox}
+          checked={checked}
+          onChange={onChangeLocal}
+          disabled={isDisabled}
+        />
+        <div className={s.customCheckbox} />
+        <div className={s.labelText}>{label}</div>
+      </label>
     </div>
   );
 };

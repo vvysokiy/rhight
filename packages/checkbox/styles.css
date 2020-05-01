@@ -1,49 +1,53 @@
 @import "base.css";
 
+.root {
+  display: flex;
+  font-family: var(--roboto);
+  font-size: 13px;
+  line-height: 15px;
+  color: var(--colorBlack);
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  color: var(--colorText);
+}
+
+.customCheckbox {
+  width: 10px;
+  height: 10px;
+  margin-right: 13px;
+  border: 2px solid var(--colorWhite);
+  outline: 1px solid var(--colorLightGray);
+  background-color: var(--colorWhite);
+  transition: outline-color 100ms linear, background-color 100ms linear, border-color 100ms linear;
+  cursor: pointer;
+}
+
 .checkbox {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
+  display: none;
 
-  & + .label {
-    display: inline-flex;
-    align-items: center;
-    user-select: none;
-  }
-
-  & + .label::before {
-    content: '';
-    display: inline-block;
-    width: 9px;
-    height: 9px;
-    border: 2px solid var(--colorWhite);
-    outline: 1px solid var(--colorLightGray);
-    background-color: var(--colorWhite);
-    transition: outline-color 100ms linear, background-color 100ms linear;
-  }
-
-  &:checked + label::before {
-    content: '';
-    display: inline-block;
-    width: 9px;
-    height: 9px;
+  &:checked + .customCheckbox {
+    width: 10px;
+    height: 10px;
     border: 2px solid var(--colorWhite);
     outline: 1px solid var(--colorLightGray);
     background-color: var(--colorLightBlue);
   }
 
-  &:disabled + label::before {
+  &:disabled + .customCheckbox {
     background-color: var(--colorDisabled);
     outline: 1px solid var(--colorDisabledBorder);
     border: 2px solid var(--colorDisabledBorder);
   }
 
-  &:not(:disabled):not(:checked) + label:hover::before {
+  &:not(:disabled):not(:checked) + .customCheckbox:hover {
     outline: 1px solid var(--colorPearlGrey);
   }
 
-  &:not(:disabled):checked + label:hover::before {
+  &:not(:disabled):checked + .customCheckbox:hover {
     outline: 1px solid var(--colorPearlGrey);
-    background-color: var(--colorDarkBlue);
+    border-color: var(--colorDisabledBorder);
   }
 }

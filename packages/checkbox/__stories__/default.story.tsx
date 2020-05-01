@@ -12,6 +12,7 @@ export const Default = () => {
       <Checkbox
         checked={checked}
         onChange={onChange}
+        label="1 страница"
       />
     </div>
   );

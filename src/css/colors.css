@@ -1,7 +1,7 @@
 :root {
   --colorWhite: #fff;
   --colorBlack: #262626;
-  --colorDarkBlue: #274bc8;
+  --colorDarkBlue: #2c54e2;
   --colorBlue: #315efb;
   --colorLightBlue: #2f93ff;
   --colorGrey: #b0b4c2;
@@ -9,5 +9,6 @@
   --colorLightGray: #dcdfe7;
   --colorPearlGrey: #c6cad8;
   --colorDisabled: #afb6c9;
-  --colorDisabledBorder: #e9e9f1;
+  --colorDisabledBorder: #e8eaf0;
+  --colorText: #676767;
 }

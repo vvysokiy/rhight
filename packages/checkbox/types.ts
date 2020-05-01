@@ -6,8 +6,10 @@ declare module '@rhight/checkbox' {
     onChange: (newValue: boolean) => void;
     /** disable checkbox */
     isDisabled?: boolean;
-    /** unusable prop for label correct working */
+    /** label text */
     label?: string;
+    /** type of checkbox */
+    type?: string;
   }
 
   const Checkbox: React.FC<ICheckbox>;
