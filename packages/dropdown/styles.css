@@ -1,0 +1,57 @@
+
+@import "base.css";
+
+.root {
+  margin: 10px 0 20px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownTitle {
+  @mixin resetBtn;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 35px;
+  box-sizing: border-box;
+  padding: 4px 14px;
+  border: 1px solid var(--colorLightGray);
+  border-radius: 1px;
+  font-family: var(--roboto);
+  font-size: 13px;
+  line-height: 25px;
+  color: var(--colorBlack);
+  transition: border-color 200ms;
+
+  &:hover {
+    border-color: var(--colorGrey);
+  }
+}
+
+.text,
+.placeholder {
+  max-width: calc(100% - 30px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text {
+  color: var(--colorBlack);
+}
+
+.placeholder {
+  color: var(--colorGrey);
+}
+
+.icon {
+  transition: 200ms;
+
+  &Open {
+    transform: rotate(180deg);
+  }
+}
