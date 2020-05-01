@@ -8,9 +8,9 @@ import s from './styles.css';
 const Input: React.FC<IInput> = ({
   value,
   onChange,
+  label = '',
+  placeholder = '',
   size = 'default',
-  label,
-  placeholder,
   type = 'text',
   isDisabled = false,
 }) => {
