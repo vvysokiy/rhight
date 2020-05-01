@@ -11,7 +11,6 @@
 .label {
   display: inline-flex;
   align-items: center;
-  color: var(--colorText);
 }
 
 .customCheckbox {
@@ -44,16 +43,16 @@
   display: none;
 
   &:disabled + .customCheckbox::after {
-    background-color: var(--colorDisabled);
+    background-color: var(--colorGrey);
   }
 
   &:checked + .customCheckbox::after {
-    background-color: var(--colorLightBlue);
+    background-color: var(--colorBlue);
   }
 
   &:disabled + .customCheckbox {
-    background-color: var(--colorDisabledBorder);
-    border-color: var(--colorDisabledBorder);
+    background-color: var(--colorLightGray);
+    border-color: var(--colorLightGray);
   }
 
   &:checked + .customCheckbox:hover {
@@ -69,6 +68,6 @@
   }
 
   &:not(:disabled):checked:active + .customCheckbox {
-    background-color: var(--colorDisabledBorder);
+    background-color: var(--colorLightGray);
   }
 }
