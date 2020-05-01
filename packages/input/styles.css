@@ -1,0 +1,81 @@
+@import 'base.css';
+
+.wrapper {
+  position: relative;
+  font-family: var(--roboto);
+  font-size: 13px;
+  color: var(--colorBlack);
+}
+
+.label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.disabledLabel {
+  color: var(--colorLightGray);
+}
+
+.inputUnderline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 0 solid transparent;
+  border-width: 0 0 2px;
+  pointer-events: none;
+  transform: scaleX(0.6) scaleY(0);
+  transform-origin: center bottom;
+  transition: all 150ms linear;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid var(--colorLightGray);
+  border-radius: 1px;
+  box-sizing: border-box;
+  line-height: 25px;
+  transition: border 200ms;
+
+  &:hover {
+    border-color: var(--colorGrey);
+  }
+
+  &::placeholder {
+    color: var(--colorGrey);
+  }
+
+  &:disabled {
+    background-color: transparent;
+    color: var(--colorLightGray);
+    border-color: var(--colorLightGray);
+  }
+
+  &:disabled::placeholder {
+    color: var(--colorLightGray);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--colorLightGray);
+  }
+
+  &:focus + .inputUnderline {
+    transform: none;
+    border-color: var(--colorBlue);
+  }
+
+  &:focus::placeholder {
+    color: var(--colorLightGray);
+    transition: color 0.2s;
+  }
+}
+
+.default {
+  padding: 9px 14px;
+}
+
+.small {
+  padding: 4px 14px;
+}
