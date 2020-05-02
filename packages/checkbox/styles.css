@@ -18,7 +18,7 @@
   width: 14px;
   height: 14px;
   margin-right: 13px;
-  border: 1px solid var(--colorLightGray);
+  border: 1px solid var(--colorLightGrey);
   border-radius: 1px;
   background-color: var(--colorWhite);
   transition: background-color 100ms linear, border-color 100ms linear;
@@ -51,7 +51,7 @@
   }
 
   &:disabled + .customCheckbox {
-    background-color: var(--colorLightGray);
+    background-color: var(--colorLightGrey);
     border-color: var(--colorLightGray);
   }
 
@@ -68,6 +68,6 @@
   }
 
   &:not(:disabled):checked:active + .customCheckbox {
-    background-color: var(--colorLightGray);
+    background-color: var(--colorPaleGrey);
   }
 }
