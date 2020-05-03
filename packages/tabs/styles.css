@@ -31,6 +31,7 @@
   border-radius: 1px;
   box-shadow: inset 0 0 0 1px var(--colorLightGray);
   transition: 0.2s;
+  cursor: pointer;
 
   &.big {
     padding: 15px 20px;
@@ -44,13 +45,17 @@
     padding: 5px 15px;
   }
 
+  &:hover {
+    color: var(--colorBlue);
+  }
+
   &Active {
     z-index: 1;
     color: var(--colorBlue);
     box-shadow: inset 0 0 0 1px var(--colorBlue);
 
     &.disabled {
-      background-color: var(--colorPaleGrey);
+      background-color: var(--colorPaleGray);
     }
   }
 

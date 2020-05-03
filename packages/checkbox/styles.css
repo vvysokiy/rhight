@@ -18,7 +18,7 @@
   width: 14px;
   height: 14px;
   margin-right: 13px;
-  border: 1px solid var(--colorLightGrey);
+  border: 1px solid var(--colorLightGray);
   border-radius: 1px;
   background-color: var(--colorWhite);
   transition: background-color 100ms linear, border-color 100ms linear;
@@ -43,7 +43,7 @@
   display: none;
 
   &:disabled + .customCheckbox::after {
-    background-color: var(--colorGrey);
+    background-color: var(--colorGray);
   }
 
   &:checked + .customCheckbox::after {
@@ -51,12 +51,12 @@
   }
 
   &:disabled + .customCheckbox {
-    background-color: var(--colorLightGrey);
+    background-color: var(--colorLightGray);
     border-color: var(--colorLightGray);
   }
 
   &:checked + .customCheckbox:hover {
-    border-color: var(--colorPearlGrey);
+    border-color: var(--colorPearlGray);
   }
 
   &:checked + .customCheckbox:hover::after {
@@ -64,10 +64,10 @@
   }
 
   &:not(:disabled):not(:checked) + .customCheckbox:hover {
-    border-color: var(--colorPearlGrey);
+    border-color: var(--colorPearlGray);
   }
 
   &:not(:disabled):checked:active + .customCheckbox {
-    background-color: var(--colorPaleGrey);
+    background-color: var(--colorPaleGray);
   }
 }

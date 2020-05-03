@@ -1,11 +1,13 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import cn from 'classnames';
-// import { useClosest } from '@rhight/use-closest';
+import Portal from '@rhight/portal';
 
 import { IDropdown } from '@rhight/dropdown';
 import IconArrow from './svg/arrow.svg';
+import IconCross from './svg/cross.svg';
 import { Title } from './Title';
 import { ListSelect } from './ListSelect';
+import { usePosition, useDropdownClosest } from './use';
 import s from './styles.css';
 
 const Dropdown: React.FC<IDropdown> = ({
@@ -14,34 +16,54 @@ const Dropdown: React.FC<IDropdown> = ({
   list = [],
   title = '',
   placeholder = '',
+  className = '',
+  require = false,
+  resetBtn = false,
 }) => {
   const [isOpen, changeOpen] = useState(false);
+  const toggleOpen = useCallback(() => changeOpen(!isOpen), [isOpen]);
 
-  const toggleOpen = useCallback(() => {
-    changeOpen(!isOpen);
-  }, [isOpen]);
+  const onChangeLocal = useCallback((item, event) => {
+    changeOpen(false);
+    onChange(item, event);
+  }, [onChange]);
 
-  const changeCurrentView = useCallback((event, item) => {
-    // console.log('changeCurrentView -> event, item', event, item);
-    // onSelect(event, item);
-    // changeOpen(false);
-  }, []);
+  const { drapdownRef, PositionWrapper } = usePosition();
+
+  const selectListOpen = isOpen && list.length > 0;
+  const { listRef, buttonRef } = useDropdownClosest(selectListOpen, changeOpen);
 
   return (
-    <div className={s.root}>
+    <div className={cn(s.root, className)}>
       {title && (
-        <Title>{title}</Title>
+        <Title require={require}>{title}</Title>
       )}
 
-      <div className={s.dropdown}>
+      <div
+        ref={drapdownRef}
+        className={s.dropdown}
+      >
         <button
+          ref={buttonRef}
           type="button"
           onClick={toggleOpen}
-          className={s.dropdownTitle}
+          className={s.dropdownBtn}
         >
+          toggle dropdown
+        </button>
+        <div className={s.dropdownTitle}>
           {value && value.name ? (
-            <div className={s.text}>
-              {value.name}
+            <div className={s.dropdownText}>
+              <div className={s.text}>
+                {value.name}
+              </div>
+              <button
+                type="button"
+                onClick={(event) => onChange(null, event)}
+                className={s.resetBtn}
+              >
+                <IconCross />
+              </button>
             </div>
           ) : (
             <div className={s.placeholder}>
@@ -51,16 +73,21 @@ const Dropdown: React.FC<IDropdown> = ({
           {list.length ? (
             <IconArrow className={cn(s.icon, isOpen && s.iconOpen)} />
           ) : null}
-        </button>
+        </div>
 
-        {/* <div className={s.dropdownBorder} /> */}
-
-        {isOpen && list.length > 0 && (
-          <ListSelect
-            list={list}
-            onSelect={changeCurrentView}
-          />
-        )}
+        <Portal
+          toggle={selectListOpen}
+          onClose={() => changeOpen(false)}
+        >
+          <PositionWrapper>
+            <ListSelect
+              value={value}
+              list={list}
+              onSelect={onChangeLocal}
+              listRef={listRef}
+            />
+          </PositionWrapper>
+        </Portal>
       </div>
     </div>
   );

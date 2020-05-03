@@ -17,17 +17,15 @@ const list = [
 ];
 
 export const Default = () => {
-  // const [value, changeValue] = React.useState(list[0]);
   const [value, changeValue] = React.useState(null);
-  const onChange = (item) => {
-    // changeValue(item.value)
-  };
 
   return (
-    <div style={{ margin: '10px' }}>
+    <div style={{ margin: '10px', minHeight: '1000px' }}>
       <Dropdown
+        require
+        resetBtn
         value={value}
-        onChange={onChange}
+        onChange={changeValue}
         list={list}
         title="test-title"
         placeholder="test-placeholder"

@@ -1,5 +1,4 @@
 import {
-  MutableRefObject,
   useEffect,
   useCallback,
   useRef,
@@ -31,7 +30,7 @@ export const useClosest: UseClosestType = (callback, active = true) => {
 
   const onClickBody = useCallback((event: Event) => {
     const isClosest = Boolean(closest(event.target, ref));
-    callback(isClosest);
+    callback(isClosest, event);
   }, [callback]);
 
   useEffect(() => {

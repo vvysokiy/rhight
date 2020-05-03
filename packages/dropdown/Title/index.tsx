@@ -21,7 +21,7 @@ export const Title: React.FC<ITitle> = ({
     <div className={s.title}>
       {children}
       {require && (
-        <span className={s.require}>*</span>
+        <span className={s.require}> *</span>
       )}
     </div>
   );
