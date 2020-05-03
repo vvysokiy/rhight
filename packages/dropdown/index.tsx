@@ -17,8 +17,10 @@ const Dropdown: React.FC<IDropdown> = ({
   title = '',
   placeholder = '',
   className = '',
+  style = null,
   require = false,
   resetBtn = false,
+  ...props
 }) => {
   const [isOpen, changeOpen] = useState(false);
   const toggleOpen = useCallback(() => changeOpen(!isOpen), [isOpen]);
@@ -34,7 +36,7 @@ const Dropdown: React.FC<IDropdown> = ({
   const { listRef, buttonRef } = useDropdownClosest(selectListOpen, changeOpen);
 
   return (
-    <div className={cn(s.root, className)}>
+    <div className={cn(s.root, className)} style={style} {...props}>
       {title && (
         <Title require={require}>{title}</Title>
       )}

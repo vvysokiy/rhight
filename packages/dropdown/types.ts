@@ -7,11 +7,11 @@ declare module '@rhight/dropdown' {
   }
 
   export interface ISelectList {
-    /** Значени в выпадающем списке */
+    /** selected object */
     value: SelectItem
-    /** Список совпаней по названию */
+    /** dropdown select list */
     list: SelectItem[]
-    /** Коллбэк, вызываемый при выборе из списка */
+    /** check item handler */
     onSelect: IDropdown['onChange']
     listRef: React.MutableRefObject<any>
   }
@@ -27,7 +27,9 @@ declare module '@rhight/dropdown' {
     title?: string
     /** dropdown  placeholder */
     placeholder?: string
-    /** custom className */
+    /** custom styles for wrapper */
+    style?: React.CSSProperties
+    /** custom class for wrapper */
     className?: string
     /** marks component as required */
     require?: boolean
