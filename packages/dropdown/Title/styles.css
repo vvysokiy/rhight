@@ -1,0 +1,13 @@
+@import "base.css";
+
+.title {
+  margin-bottom: 10px;
+  font-family: var(--roboto);
+  font-size: 13px;
+  line-height: 15px;
+  color: var(--colorBlack);
+}
+
+.require {
+  color: var(--colorRed);
+}
