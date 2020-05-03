@@ -7,7 +7,7 @@ export const Default = () => {
     setValue(newValue);
   }, []);
   return (
-    <div style={{ margin: '10px', width: '350px' }}>
+    <div style={{ margin: '10px', width: '400px' }}>
       <Input
         value={value}
         onChange={onChange}
