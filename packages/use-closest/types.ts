@@ -2,9 +2,9 @@ import { MutableRefObject } from 'react';
 
 declare module '@rhight/use-closest' {
   export type UseClosestType = (
-    /** обработчик */
+    /** closest handler */
     callback: (isClosest: boolean, event: Event) => void,
-    /** флаг активности слушателя document.body */
+    /** ocument.body listener activity flag */
     active?: boolean,
   ) => MutableRefObject<any>;
 }
