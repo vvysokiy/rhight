@@ -1,6 +1,6 @@
 {
   "name": "@rhight/dropdown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
     "classnames": "^2.2.6",
     "react": "^16.8.0",

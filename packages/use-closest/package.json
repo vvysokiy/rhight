@@ -1,6 +1,6 @@
 {
   "name": "@rhight/use-closest",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
     "react": "^16.8.0"
   }

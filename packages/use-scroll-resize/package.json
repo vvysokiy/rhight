@@ -1,9 +1,9 @@
 {
   "name": "@rhight/use-scroll-resize",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
-    "react": "^16.8.0",
     "lodash.debounce": "^4.0.8",
-    "lodash.throttle": "^4.1.1"
+    "lodash.throttle": "^4.1.1",
+    "react": "^16.8.0"
   }
 }

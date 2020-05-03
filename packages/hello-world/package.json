@@ -1,6 +1,6 @@
 {
   "name": "@rhight/hello-world",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "dependencies": {
     "classnames": "^2.2.6",
     "react": "^16.8.0",
