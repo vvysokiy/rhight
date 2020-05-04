@@ -4,7 +4,7 @@
   "description": "react hooks lib",
   "main": "index.js",
   "scripts": {
-    "check": "npm run tsc && npm run eslint && npm run stylelint && npm run test",
+    "check": "npm run tsc && npm run eslint && npm run stylelint",
     "tsc": "tsc --noEmit",
     "eslint": "eslint 'packages/**/*{ts,tsx,js}'",
     "stylelint": "stylelint packages/**/*.css --config .stylelintrc.js",
