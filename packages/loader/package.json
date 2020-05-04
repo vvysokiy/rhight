@@ -1,6 +1,7 @@
 {
   "name": "@rhight/loader",
   "version": "1.0.2",
+  "main": "./index.js",
   "dependencies": {
     "classnames": "^2.2.6",
     "react": "^16.8.0",
