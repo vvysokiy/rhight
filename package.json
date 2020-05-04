@@ -11,7 +11,7 @@
     "version-bump": "lerna version --conventional-commits --tag-version-prefix='' --changelog-preset eslint",
     "storybook": "start-storybook -p 3000 -s ./cdn/src",
     "build": "lerna exec --parallel -- webpack -p --config=../../webpack.config.js",
-    "release": "lerna publish --contents dist from-package"
+    "release": "lerna publish --contents dist --yes from-package"
   },
   "husky": {
     "hooks": {
