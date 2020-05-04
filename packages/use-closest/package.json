@@ -3,5 +3,8 @@
   "version": "1.0.2",
   "dependencies": {
     "react": "^16.8.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
