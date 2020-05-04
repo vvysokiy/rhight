@@ -36,7 +36,7 @@ if (!isMergeBranch) {
     console.log(colors.green.bold(`${gitMessage}    RELEASE!`));
     fs.writeFileSync(messageFile, gitMessage);
     // Если сматчился коммит в ветке задачи
-  } if (branchMatch) {
+  } else if (branchMatch) {
     const [, tag, taskName, message] = branchMatch;
     const commitMessage = `${tag}: ${getIssueLink(taskName)} - ${message}`;
 
