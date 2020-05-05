@@ -1,27 +1,12 @@
 @import 'base.css';
 
-.root {
+.wrapper {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  font-size: 13px;
   font-family: var(--roboto);
   color: var(--colorBlack);
-  font-size: 13px;
-}
-
-.wrapper {
-  width: 100%;
-  border: 1px solid var(--colorLightGray);
-  transition: all 150ms linear;
   box-sizing: border-box;
-
-  &:hover {
-    border: 1px solid var(--colorGray);
-  }
-}
-
-.wrapperFocused {
-  border: 1px solid var(--colorLightGray) !important;
 }
 
 .header {
@@ -35,32 +20,32 @@
 .underline {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   border: 0 solid transparent;
   border-width: 0 0 2px;
-  pointer-events: none;
   transform: scaleX(0.6) scaleY(0);
   transform-origin: center bottom;
   transition: all 150ms linear;
-}
-
-.underlineFocused {
-  width: 100%;
-  transform: none;
-  border-color: var(--colorBlue);
+  pointer-events: none;
 }
 
 .textarea {
   position: relative;
   width: 100%;
-  box-sizing: border-box;
-  padding: 15px;
-  line-height: 20px;
+  margin-bottom: -3px;
+  padding: 14px;
   font-size: 13px;
-  border: none;
+  line-height: 20px;
+  border: 1px solid var(--colorLightGray);
+  transition: border-color 150ms linear;
+  box-sizing: border-box;
   resize: vertical;
+
+  &:hover {
+    border: 1px solid var(--colorGray);
+  }
 
   &::placeholder {
     color: var(--colorGray);
@@ -68,8 +53,8 @@
   }
 
   &:disabled {
-    background-color: transparent;
     color: var(--colorLightGray);
+    background-color: transparent;
   }
 
   &:disabled::placeholder {
@@ -77,7 +62,13 @@
   }
 
   &:focus {
+    border-color: var(--colorLightGray);
     outline: none;
+  }
+
+  &:focus + .underline {
+    border-color: var(--colorBlue);
+    transform: none;
   }
 
   &:focus::placeholder {
@@ -86,22 +77,21 @@
 }
 
 .textareaMobile {
-  padding: 15px 20px;
+  padding: 14px 19px;
   font-size: 16px;
   line-height: 25px;
 }
 
 .counter {
   position: absolute;
-  bottom: 0;
   right: 15px;
-  padding: 5px 0 10px;
+  bottom: 7px;
   font-size: 11px;
   line-height: 15px;
   color: var(--colorGray);
 }
 
 .counterMobile {
-  font-size: 13px;
   right: 20px;
+  font-size: 13px;
 }

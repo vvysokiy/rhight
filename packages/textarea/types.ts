@@ -4,6 +4,8 @@ declare module '@rhight/textarea' {
     value: string;
     /** input handler */
     onChange: (newValue: string) => void;
+    /** type of counter */
+    counterType?: 'none' | 'words' | 'symbols';
     /** input size */
     isMobile?: boolean;
     /** input label */
@@ -12,8 +14,6 @@ declare module '@rhight/textarea' {
     placeholder?: string;
     /** disable input and label */
     isDisabled?: boolean;
-    /** letter or words counter */
-    counter?: string;
   }
 
   const Input: React.FC<ITextarea>;

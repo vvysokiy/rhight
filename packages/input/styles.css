@@ -39,11 +39,11 @@
   transition: border 200ms;
 
   &:hover {
-    border-color: var(--colorGrey);
+    border-color: var(--colorGray);
   }
 
   &::placeholder {
-    color: var(--colorGrey);
+    color: var(--colorGray);
   }
 
   &:disabled {
