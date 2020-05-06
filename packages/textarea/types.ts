@@ -3,7 +3,7 @@ declare module '@rhight/textarea' {
     /** value of current input */
     value: string;
     /** input handler */
-    onChange: (newValue: string) => void;
+    onChange: (newValue: string, event: React.ChangeEvent<HTMLTextAreaElement>) => void;
     /** type of counter */
     counterType?: 'none' | 'words' | 'symbols';
     /** input size */

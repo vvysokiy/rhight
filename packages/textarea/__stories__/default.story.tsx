@@ -13,7 +13,8 @@ export const Default = () => {
         onChange={onChange}
         header="Header"
         placeholder="Placeholder"
-        counterType="symbols"
+        counterType="words"
+        isMobile
       />
     </div>
   );

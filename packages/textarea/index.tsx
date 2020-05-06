@@ -1,7 +1,8 @@
-import React, { useMemo, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import cn from 'classnames';
 
 import { ITextarea } from '@rhight/textarea';
+import Counter from '@rhight/textarea/counter';
 
 import s from './styles.css';
 
@@ -15,27 +16,12 @@ const Textarea: React.FC<ITextarea> = ({
   isDisabled = false,
 }) => {
   const onChangeLocal = useCallback(
-    (e: React.SyntheticEvent) => {
-      const newValue = (e.target as HTMLInputElement).value;
-      onChange(newValue);
+    (event) => {
+      const newValue = (event.target as HTMLInputElement).value;
+      onChange(newValue, event);
     },
     [onChange],
   );
-
-  const letterCounter = useCallback((val: string) => val.length, []);
-
-  const letterCounterMemo = useMemo(() => letterCounter(value), [value, letterCounter]);
-
-  const wordCounter = useCallback((val: string) => {
-    if (val.length > 0) {
-      const newStr = val.replace(/(^\s*)|(\s*$)/gi, '')
-        .replace(/[ ]{2,}/gi, ' ')
-        .replace(/\n /, '\n');
-      return newStr.split(' ').length;
-    } return 0;
-  }, []);
-
-  const wordCounterMemo = useMemo(() => wordCounter(value), [value, wordCounter]);
 
   return (
     <div className={cn(
@@ -56,16 +42,7 @@ const Textarea: React.FC<ITextarea> = ({
         disabled={isDisabled}
       />
       <div className={s.underline} />
-      {counterType === 'words' && (
-        <div className={cn(s.counter, { [s.counterMobile]: isMobile })}>
-          <span>{wordCounterMemo}</span>
-        </div>
-      )}
-      {counterType === 'symbols' && (
-        <div className={cn(s.counter, { [s.counterMobile]: isMobile })}>
-          <span>{letterCounterMemo}</span>
-        </div>
-      )}
+      <Counter value={value} counterType={counterType} isMobile={isMobile} />
     </div>
   );
 };

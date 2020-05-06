@@ -1,0 +1,15 @@
+@import 'base.css';
+
+.counter {
+  position: absolute;
+  right: 15px;
+  bottom: 7px;
+  font-size: 11px;
+  line-height: 15px;
+  color: var(--colorGray);
+}
+
+.counterMobile {
+  right: 20px;
+  font-size: 13px;
+}
