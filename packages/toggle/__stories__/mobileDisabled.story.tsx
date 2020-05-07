@@ -1,8 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import Toggle from '@rhight/toggle';
 
-export const Disabled = () => {
-  const isDisabled = true;
+export const MobileDisabled = () => {
   const [checked, setChecked] = useState(false);
   const onChange = useCallback((newValue: boolean) => {
     setChecked(!newValue);
@@ -13,7 +12,8 @@ export const Disabled = () => {
       <Toggle
         checked={checked}
         onChange={onChange}
-        isDisabled={isDisabled}
+        isMobile
+        isDisabled
       />
     </div>
   );

@@ -36,6 +36,19 @@
     background-color: var(--colorWhite);
     transition: 0.2s;
   }
+
+  &.mobile {
+    width: 35px;
+    height: 20px;
+    border-radius: 10px;
+    cursor: default;
+
+    &::after {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+    }
+  }
 }
 
 .checkbox {
@@ -53,7 +66,7 @@
     background-color: var(--colorBlue);
   }
 
-  &:disabled + .customCheckbox:hover {
+  &:disabled + .customCheckbox:not(.mobile):hover {
     cursor: default;
   }
 
@@ -61,7 +74,11 @@
     left: 16px;
   }
 
-  &:not(:disabled):not(:checked) + .customCheckbox:hover {
+  &:not(:disabled):not(:checked):active + .customCheckbox {
+    background-color: var(--colorGray);
+  }
+
+  &:not(:disabled):not(:checked) + .customCheckbox:not(.mobile):hover {
     background-color: var(--colorGray);
   }
 }

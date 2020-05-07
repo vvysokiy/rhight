@@ -1,5 +1,5 @@
-declare module '@rhight/toggle' {
-  export interface IToggle {
+declare module '@rhight/checkbox' {
+  export interface ICheckbox {
     /** variable value of checkbox */
     checked: boolean;
     /** handler of checkbox */
@@ -12,6 +12,6 @@ declare module '@rhight/toggle' {
     type?: string;
   }
 
-  const Toggle: React.FC<IToggle>;
-  export default Toggle;
+  const Checkbox: React.FC<ICheckbox>;
+  export default Checkbox;
 }

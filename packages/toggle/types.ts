@@ -1,17 +1,19 @@
-declare module '@rhight/checkbox' {
-  export interface ICheckbox {
-    /** variable value of checkbox */
+declare module '@rhight/toggle' {
+  export interface IToggle {
+    /** variable value of switcher */
     checked: boolean;
-    /** handler of checkbox */
+    /** handler of switcher */
     onChange: (newValue: boolean) => void;
-    /** disable checkbox */
+    /** disable switcher */
     isDisabled?: boolean;
     /** label text */
     label?: string;
-    /** type of checkbox */
+    /** type of switcher */
     type?: string;
+    /** size of switcher */
+    isMobile?: boolean;
   }
 
-  const Checkbox: React.FC<ICheckbox>;
-  export default Checkbox;
+  const Toggle: React.FC<IToggle>;
+  export default Toggle;
 }

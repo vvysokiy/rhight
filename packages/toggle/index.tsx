@@ -2,6 +2,8 @@ import React, { useCallback } from 'react';
 
 import { IToggle } from '@rhight/toggle';
 
+import cn from 'classnames';
+
 import s from './styles.css';
 
 const Toggle: React.FC<IToggle> = ({
@@ -10,6 +12,7 @@ const Toggle: React.FC<IToggle> = ({
   isDisabled = false,
   label = '',
   type = 'checkbox',
+  isMobile = false,
 }) => {
   const onChangeLocal = useCallback(
     (e: React.SyntheticEvent) => {
@@ -29,7 +32,7 @@ const Toggle: React.FC<IToggle> = ({
           onChange={onChangeLocal}
           disabled={isDisabled}
         />
-        <div className={s.customCheckbox} />
+        <div className={cn(s.customCheckbox, { [s.mobile]: isMobile })} />
         <div className={s.labelText}>{label}</div>
       </label>
     </div>
