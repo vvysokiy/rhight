@@ -1,31 +1,25 @@
-import React, { useMemo, useCallback } from 'react';
+import React from 'react';
 import cn from 'classnames';
-
-import { ICounter } from '@rhight/counter';
 
 import s from './styles.css';
 
-const counter = (val: string) => {
-  if (val.length > 0) {
-    const newStr = val.replace(/(^\s*)|(\s*$)/gi, '')
+const counter = (text: string) => {
+  if (text.length > 0) {
+    const newStr = text.replace(/(^\s*)|(\s*$)/gi, '')
       .replace(/[ ]{2,}/gi, ' ')
       .replace(/\n /, '\n');
     return newStr.split(' ').length;
   } return 0;
 };
 
-const Counter: React.FC<ICounter> = ({
+export const Counter = ({
   value = '',
   counterType = 'none',
   isMobile = false,
 }) => {
-  const letterCounter = useCallback((val: string) => val.length, []);
+  const letterCounter = value.length;
 
-  const letterCounterMemo = useMemo(() => letterCounter(value), [value, letterCounter]);
-
-  const wordCounter = useCallback((str: string) => counter(str), []);
-
-  const wordCounterMemo = useMemo(() => wordCounter(value), [value, wordCounter]);
+  const wordCounter = counter(value);
 
   return (
     <div className={cn(
@@ -34,13 +28,11 @@ const Counter: React.FC<ICounter> = ({
     )}
     >
       {counterType === 'words' && (
-        <div>{wordCounterMemo}</div>
+        <div>{wordCounter}</div>
       )}
       {counterType === 'symbols' && (
-        <div>{letterCounterMemo}</div>
+        <div>{letterCounter}</div>
       )}
     </div>
   );
 };
-
-export default Counter;

@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import cn from 'classnames';
 
 import { ITextarea } from '@rhight/textarea';
-import Counter from '@rhight/textarea/counter';
+import { Counter } from '@rhight/textarea/counter';
 
 import s from './styles.css';
 
@@ -42,7 +42,9 @@ const Textarea: React.FC<ITextarea> = ({
         disabled={isDisabled}
       />
       <div className={s.underline} />
-      <Counter value={value} counterType={counterType} isMobile={isMobile} />
+      {counterType === 'none'
+        ? null
+        : <Counter value={value} counterType={counterType} isMobile={isMobile} />}
     </div>
   );
 };

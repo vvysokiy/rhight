@@ -1,4 +1,14 @@
 declare module '@rhight/textarea' {
+
+  export interface ICounter {
+    /** value for calculation */
+    value?: string;
+    /* type of counter */
+    counterType?: 'none' | 'words' | 'symbols';
+    /* counter size */
+    isMobile?: boolean;
+  }
+
   export interface ITextarea {
     /** value of current input */
     value: string;
