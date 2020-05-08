@@ -15,9 +15,9 @@ const Toggle: React.FC<IToggle> = ({
   isMobile = false,
 }) => {
   const onChangeLocal = useCallback(
-    (e: React.SyntheticEvent) => {
-      const newValue = !(e.target as HTMLInputElement).checked;
-      onChange(newValue);
+    (event) => {
+      const newValue = !(event.target as HTMLInputElement).checked;
+      onChange(newValue, event);
     },
     [onChange],
   );

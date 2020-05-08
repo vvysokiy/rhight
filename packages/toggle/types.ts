@@ -3,7 +3,7 @@ declare module '@rhight/toggle' {
     /** variable value of switcher */
     checked: boolean;
     /** handler of switcher */
-    onChange: (newValue: boolean) => void;
+    onChange: (newValue: boolean, event: React.ChangeEvent<HTMLInputElement>) => void;
     /** disable switcher */
     isDisabled?: boolean;
     /** label text */
