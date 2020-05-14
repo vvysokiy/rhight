@@ -1,0 +1,89 @@
+
+@import "base.css";
+
+.root {
+  margin: 10px 0 20px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 35px;
+  box-sizing: border-box;
+  padding: 4px 14px;
+  border: 1px solid var(--colorLightGray);
+  border-radius: 1px;
+  font-family: var(--roboto);
+  font-size: 13px;
+  line-height: 25px;
+  color: var(--colorBlack);
+  transition: border-color 200ms;
+}
+
+.dropdownBtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+
+  &:hover {
+    & + .dropdownTitle {
+      border-color: var(--colorGray);
+    }
+  }
+}
+
+.dropdownText {
+  display: flex;
+  width: 100%;
+  max-width: calc(100% - 25px);
+}
+
+.resetBtn {
+  @mixin resetBtn;
+
+  position: relative;
+  z-index: 2;
+  width: 25px;
+  height: 25px;
+  box-sizing: border-box;
+  padding: 5px;
+  transition: color 200ms;
+
+  &:hover {
+    color: var(--colorBlue);
+  }
+}
+
+.text,
+.placeholder {
+  max-width: calc(100% - 30px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text {
+  color: var(--colorBlack);
+}
+
+.placeholder {
+  color: var(--colorGray);
+}
+
+.icon {
+  transition: 200ms;
+
+  &Open {
+    transform: rotate(180deg);
+  }
+}

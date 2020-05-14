@@ -26,6 +26,7 @@ module.exports = {
     'no-unused-vars': 0,
     // 'no-param-reassign': ['error', {props: false}],
     'import/prefer-default-export': 0,
+    "import/extensions": 0,
     // 'import/no-extraneous-dependencies': 0,
     // 'no-plusplus': ['error', {allowForLoopAfterthoughts: true}],
     // '@typescript-eslint/no-unused-vars': 2,

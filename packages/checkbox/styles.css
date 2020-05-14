@@ -1,0 +1,73 @@
+@import "base.css";
+
+.root {
+  display: flex;
+  font-family: var(--roboto);
+  font-size: 13px;
+  line-height: 15px;
+  color: var(--colorBlack);
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.customCheckbox {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  margin-right: 13px;
+  border: 1px solid var(--colorLightGray);
+  border-radius: 1px;
+  background-color: var(--colorWhite);
+  transition: background-color 100ms linear, border-color 100ms linear;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    margin: auto;
+    border-radius: 1px;
+    transition: background-color 100ms linear;
+  }
+}
+
+.checkbox {
+  display: none;
+
+  &:disabled + .customCheckbox::after {
+    background-color: var(--colorGray);
+  }
+
+  &:checked + .customCheckbox::after {
+    background-color: var(--colorBlue);
+  }
+
+  &:disabled + .customCheckbox {
+    background-color: var(--colorLightGray);
+    border-color: var(--colorLightGray);
+  }
+
+  &:checked + .customCheckbox:hover {
+    border-color: var(--colorPearlGray);
+  }
+
+  &:checked + .customCheckbox:hover::after {
+    background-color: var(--colorDarkBlue);
+  }
+
+  &:not(:disabled):not(:checked) + .customCheckbox:hover {
+    border-color: var(--colorPearlGray);
+  }
+
+  &:not(:disabled):checked:active + .customCheckbox {
+    background-color: var(--colorPaleGray);
+  }
+}

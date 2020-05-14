@@ -17,7 +17,7 @@ module.exports = {
     // "function-url-quotes": "always",
     // "string-quotes": "double",
     // "no-empty-source": null,
-    // "at-rule-no-unknown": null,
+    "at-rule-no-unknown": null,
     // 'no-descending-specificity': null,
     // "selector-list-comma-newline-after": null,
     // "selector-pseudo-class-no-unknown": [

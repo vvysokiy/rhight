@@ -30,7 +30,7 @@ const getDecoratedFunction: GetDecoratedFunction = (callback, config = {}) => {
  * @param eventName - имя события для наблюдения
  * @param callback - обработчик на событие ресайза
  */
-export const useEventEffect = (
+const useEventEffect = (
   eventName: typeof RESIZE_EVENT | typeof SCROLL_EVENT,
   callback: (event: Event) => void,
 ) => {

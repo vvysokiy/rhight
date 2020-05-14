@@ -32,8 +32,11 @@ const wipMatch = gitMessage.match(WIP_REGEXP);
 
 // Исключение мерж-коммитов
 if (!isMergeBranch) {
-  // Если сматчился коммит в ветке задачи
-  if (branchMatch) {
+  if (gitMessage.includes('chore(release):')) {
+    console.log(colors.green.bold(`${gitMessage}    RELEASE!`));
+    fs.writeFileSync(messageFile, gitMessage);
+    // Если сматчился коммит в ветке задачи
+  } else if (branchMatch) {
     const [, tag, taskName, message] = branchMatch;
     const commitMessage = `${tag}: ${getIssueLink(taskName)} - ${message}`;
 

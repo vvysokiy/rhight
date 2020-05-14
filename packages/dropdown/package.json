@@ -1,5 +1,5 @@
 {
-  "name": "@rhight/tabs",
+  "name": "@rhight/dropdown",
   "version": "1.0.3",
   "dependencies": {
     "classnames": "^2.2.6",
