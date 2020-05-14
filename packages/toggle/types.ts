@@ -8,8 +8,6 @@ declare module '@rhight/toggle' {
     isDisabled?: boolean;
     /** label text */
     label?: string;
-    /** type of switcher */
-    type?: string;
     /** size of switcher */
     isMobile?: boolean;
   }

@@ -11,7 +11,6 @@ const Toggle: React.FC<IToggle> = ({
   onChange,
   isDisabled = false,
   label = '',
-  type = 'checkbox',
   isMobile = false,
 }) => {
   const onChangeLocal = useCallback(
@@ -26,7 +25,7 @@ const Toggle: React.FC<IToggle> = ({
     <div className={s.root}>
       <label className={s.label}>
         <input
-          type={type}
+          type="checkbox"
           className={s.checkbox}
           checked={checked}
           onChange={onChangeLocal}
