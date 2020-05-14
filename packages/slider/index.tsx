@@ -19,12 +19,14 @@ const Slider: React.FC<ISlider> = ({
 }) => {
   const fillRef = useRef(null);
 
-  const fillWidth = () => {
-    const percent = ((value - start) / (end - start)) * 100;
-    fillRef.current.style.width = `${percent}%`;
-  };
+  const fillWidth = useCallback(() => {
+    if (fillRef && fillRef.current) {
+      const percent = ((value - start) / (end - start)) * 100;
+      fillRef.current.style.width = `${percent}%`;
+    }
+  }, [value, start, end]);
 
-  useEffect(() => fillWidth());
+  useEffect(fillWidth);
 
   const onChangeLocal = useCallback(
     (event) => {
@@ -39,10 +41,7 @@ const Slider: React.FC<ISlider> = ({
       <div className={s.track} />
       <div
         ref={fillRef}
-        className={
-          cn(s.fill,
-            { [s.disabled]: isDisabled })
-        }
+        className={cn(s.fill, { [s.disabled]: isDisabled })}
       />
       <input
         type="range"
