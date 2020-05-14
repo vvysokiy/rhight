@@ -4,13 +4,15 @@
   "description": "react hooks lib",
   "main": "index.js",
   "scripts": {
-    "check": "npm run tsc && npm run eslint && npm run stylelint && npm run test",
+    "check": "npm run tsc && npm run eslint && npm run stylelint",
     "tsc": "tsc --noEmit",
     "eslint": "eslint 'packages/**/*{ts,tsx,js}'",
     "stylelint": "stylelint packages/**/*.css --config .stylelintrc.js",
     "version-bump": "lerna version --conventional-commits --tag-version-prefix='' --changelog-preset eslint",
     "storybook": "start-storybook -p 3000 -s ./cdn/src",
-    "build": "lerna exec --parallel -- webpack -p --config=../../webpack.config.js"
+    "deploy-storybook": "storybook-to-ghpages",
+    "build": "lerna exec --parallel -- webpack -p --config=../../webpack.config.js",
+    "release": "npm run version-bump && npm run build && lerna exec --parallel -- cp package.json dist && lerna publish --contents dist --yes from-package"
   },
   "husky": {
     "hooks": {
@@ -29,6 +31,7 @@
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-typescript": "^7.9.0",
     "@storybook/react": "^5.3.18",
+    "@storybook/storybook-deployer": "^2.8.5",
     "@svgr/webpack": "^5.3.1",
     "@types/classnames": "^2.2.10",
     "@typescript-eslint/eslint-plugin": "^2.28.0",

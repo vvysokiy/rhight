@@ -16,6 +16,8 @@ module.exports = {
   mode: 'production',
   output: {
     path: outputDir,
+    libraryTarget: 'commonjs2',
+    hotUpdateFunction: 'webpackHotUpdateRUI',
     filename: 'index.js',
   },
 
