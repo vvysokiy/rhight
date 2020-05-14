@@ -2,6 +2,7 @@ import React, {
   useCallback,
   useRef,
   useEffect,
+  useState,
 } from 'react';
 import cn from 'classnames';
 
@@ -19,10 +20,26 @@ const Slider: React.FC<ISlider> = ({
 }) => {
   const fillRef = useRef(null);
 
+  const [leftSpace, setLeftSpace] = useState(false);
+  const [rightSpace, setRightSpace] = useState(false);
+
   const fillWidth = useCallback(() => {
     if (fillRef && fillRef.current) {
       const percent = ((value - start) / (end - start)) * 100;
-      fillRef.current.style.width = `${percent}%`;
+
+      if (percent === 0) {
+        setLeftSpace(true);
+      } else {
+        setLeftSpace(false);
+      }
+
+      if (percent === 100) {
+        setRightSpace(true);
+        fillRef.current.style.width = `${percent - 1}%`;
+      } else {
+        setRightSpace(false);
+        fillRef.current.style.width = `${percent}%`;
+      }
     }
   }, [value, start, end]);
 
@@ -38,7 +55,10 @@ const Slider: React.FC<ISlider> = ({
 
   return (
     <div className={s.root}>
-      <div className={s.track} />
+      <div className={cn(s.track,
+        { [s.leftSpace]: leftSpace },
+        { [s.rightSpace]: rightSpace })}
+      />
       <div
         ref={fillRef}
         className={cn(s.fill, { [s.disabled]: isDisabled })}

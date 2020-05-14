@@ -75,9 +75,19 @@
   position: absolute;
   height: 5px;
   background-color: var(--colorBlue);
-  border-radius: 1px;
+  border-radius: 1px 0 0 1px;
 }
 
 .disabled {
   background-color: var(--colorGray);
+}
+
+.leftSpace {
+  width: 99%;
+  right: 0;
+}
+
+.rightSpace {
+  width: 99%;
+  left: 0;
 }
