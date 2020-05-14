@@ -1,6 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
 
+import { ICounter } from '@rhight/textarea';
+
 import s from './styles.css';
 
 const counter = (text: string) => {
@@ -12,7 +14,7 @@ const counter = (text: string) => {
   } return 0;
 };
 
-export const Counter = ({
+export const Counter: React.FC<ICounter> = ({
   value = '',
   counterType = 'none',
   isMobile = false,
