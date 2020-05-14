@@ -20,7 +20,7 @@ const Slider: React.FC<ISlider> = ({
   const fillRef = useRef(null);
 
   const fillWidth = () => {
-    const percent = (value / end) * 100;
+    const percent = ((value - start) / (end - start)) * 100;
     fillRef.current.style.width = `${percent}%`;
   };
 
