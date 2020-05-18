@@ -26,6 +26,6 @@ declare module '@rhight/textarea' {
     isDisabled?: boolean;
   }
 
-  const Input: React.FC<ITextarea>;
-  export default Input;
+  const Textarea: React.FC<ITextarea>;
+  export default Textarea;
 }
