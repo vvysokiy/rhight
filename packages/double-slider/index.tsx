@@ -12,7 +12,6 @@ import s from './styles.css';
 const DoubleSlider: React.FC<IDoubleSlider> = ({
   values,
   onChange,
-  onChange2,
   start,
   end,
   step = 1,
@@ -36,21 +35,19 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
   });
 
   const onChangeLocal = useCallback(
-    (event) => {
+    (index: number, event) => {
       const newValue = Number((event.target as HTMLInputElement).value);
-      const minValue = Math.min(newValue, values[1]);
-      onChange(minValue, event);
+      if (index === 0) {
+        const minValue = Math.min(newValue, values[1]);
+        onChange(minValue, index, event);
+      }
+
+      if (index === 1) {
+        const maxValue = Math.max(newValue, values[0]);
+        onChange(maxValue, index, event);
+      }
     },
     [onChange, values],
-  );
-
-  const onChangeLocal2 = useCallback(
-    (event) => {
-      const newValue = Number((event.target as HTMLInputElement).value);
-      const maxValue = Math.max(newValue, values[0]);
-      onChange2(maxValue, event);
-    },
-    [onChange2, values],
   );
 
   return (
@@ -69,7 +66,7 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
         min={start}
         max={end}
         step={step}
-        onChange={onChangeLocal}
+        onChange={(e) => onChangeLocal(0, e)}
         value={values[0]}
         onMouseMove={setLeft}
         disabled={isDisabled}
@@ -80,7 +77,7 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
         min={start}
         max={end}
         step={step}
-        onChange={onChangeLocal2}
+        onChange={(e) => onChangeLocal(1, e)}
         value={values[1]}
         onMouseMove={setRight}
         disabled={isDisabled}
