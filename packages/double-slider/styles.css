@@ -43,10 +43,6 @@ input[type=range]::-moz-focus-outer {
 
 .slider:nth-of-type(2) {
   z-index: 4;
-
-  &::-webkit-slider-thumb {
-    border: 5px solid red;
-  }
 }
 
 .slider::-moz-range-track {
