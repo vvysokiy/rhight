@@ -7,5 +7,11 @@
 }
 
 .slides {
+  position: relative;
+  z-index: 1;
   display: flex;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
 }

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import cn from 'classnames';
 
 import { ISwiper, SwiperStateType } from '@rhight/swiper';
@@ -8,7 +8,7 @@ import { Slides } from './Slides';
 import { PrevNextBtn } from './PrevNextBtn';
 import { Pagination } from './Pagination';
 
-import { useSwiper } from './hooks';
+import { useSwiper, useStartIndex } from './hooks';
 
 import s from './styles.css';
 
@@ -26,6 +26,7 @@ const Swiper: React.FC<ISwiper> = React.memo(({
   prevNext = false,
   slotPrevNext = null,
   transition = 'all 0.5s ease 0s',
+  lastAdvantage = 0,
 }) => {
   const {
     animation,
@@ -42,11 +43,10 @@ const Swiper: React.FC<ISwiper> = React.memo(({
     propOnMouseMove,
     propOnMouseUp,
     onSwiped,
+    lastAdvantage,
   });
 
-  useEffect(() => {
-    if (startIndex) goToSlide(startIndex, true);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  useStartIndex({ startIndex, goToSlide });
 
   return (
     <div

@@ -16,7 +16,7 @@ declare module '@rhight/swiper' {
   export interface IPagination {
     children: React.ReactNode[]
     /** pagination animation */
-    transition: string
+    transition: ISwiper['transition']
     /** active slide index */
     currentIndex: number
   }
@@ -65,11 +65,13 @@ declare module '@rhight/swiper' {
     /** slot for custom prev/next btn */
     slotPrevNext?: (prevNextProps: IPrevNextBtn) => React.ReactNode
     /** slideshow animation */
-    transition?: string
+    transition?: React.CSSProperties['transition']
     /** custom styles for wrapper */
     style?: React.CSSProperties
     /** custom class for wrapper */
     className?: string
+    /** experimental property, adds weight to the last slide in the DND for smooth swipe */
+    lastAdvantage?: number
   }
 
   const Swiper: React.FC<ISwiper>;

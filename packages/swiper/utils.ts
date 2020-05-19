@@ -1,3 +1,12 @@
+import { SlidesStateType, ISwiper } from '@rhight/swiper';
+
+type WeightSlideType = {
+  weight: number;
+  index: number;
+  node: HTMLDivElement;
+  rect: DOMRect;
+}
+
 export const calcSlidesWidth = (slideNodeList: HTMLDivElement[], lastIndex: number) => {
   let index = 0;
   let width = 0;
@@ -20,9 +29,31 @@ export const getLeftCoordinate = (
   return leftFeed + window.pageXOffset - leftRoot;
 };
 
+const addLastAdvantage = (
+  rootRef: React.MutableRefObject<any>,
+  slidesState: SlidesStateType,
+  weightSlides: WeightSlideType[],
+  lastAdvantage: ISwiper['lastAdvantage'],
+) => {
+  const { clientWidth } = rootRef.current;
+
+  weightSlides.forEach((slideObj, index, list) => {
+    if (
+      slideObj.index !== slidesState.slideIndex
+      && (index === 0 || index === list.length - 1)
+    ) {
+      // eslint-disable-next-line no-param-reassign
+      slideObj.weight += (clientWidth * lastAdvantage) / 100;
+    }
+  });
+};
+
+
 export const calcActiveSlide = (
   rootRef: React.MutableRefObject<any>,
   slideNodeList: HTMLDivElement[],
+  slidesState: SlidesStateType,
+  lastAdvantage: ISwiper['lastAdvantage'],
 ) => {
   let activeSlideIndex: number;
 
@@ -49,6 +80,8 @@ export const calcActiveSlide = (
       const end = slideRight < rootRight ? slideRight : rootRight;
       return { ...slideConfig, weight: end - start };
     });
+
+    if (lastAdvantage) addLastAdvantage(rootRef, slidesState, weightSlides, lastAdvantage);
 
     let slideWithMaxWeight;
     weightSlides.forEach((obj) => {

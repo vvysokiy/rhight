@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Swiper from '@rhight/swiper';
 
 import { usePhotos } from './hooks';
 
-export const Default = () => {
+export const LastAdvantage = () => {
   const slides = usePhotos();
 
   return (
@@ -11,6 +11,7 @@ export const Default = () => {
       <Swiper
         prevNext
         pagination
+        lastAdvantage={50}
       >
         {slides.map((item) => (
           <img

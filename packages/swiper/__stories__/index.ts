@@ -6,3 +6,5 @@ export default {
 };
 
 export * from './default.story';
+export * from './allEvents.story';
+export * from './lastAdvantage.story';
