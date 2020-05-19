@@ -1,0 +1,7 @@
+.root {
+  display: flex;
+}
+
+.slide {
+  user-select: none;
+}

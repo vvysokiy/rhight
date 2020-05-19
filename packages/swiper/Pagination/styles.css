@@ -1,0 +1,32 @@
+@import "base.css";
+
+.root {
+  display: flex;
+  overflow: hidden;
+  width: 90px;
+  margin: 0 auto;
+}
+
+.feed {
+  display: flex;
+  padding: 0 36px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: var(--colorGray);
+  transform: scale(0.375);
+
+  &_active {
+    background-color: var(--colorBlue);
+    transform: scale(1);
+  }
+
+  &_next,
+  &_prev {
+    transform: scale(0.625);
+  }
+}
