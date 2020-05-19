@@ -7,10 +7,8 @@ declare module '@rhight/double-slider' {
     /** value of max input */
     end: number;
     /** input handler */
-    onChange: (newValue: number, index: number, event: React.ChangeEvent<HTMLInputElement>) => void;
-    /** input handler */
-    // onChange2: (newValue: number, event: React.ChangeEvent<HTMLInputElement>) => void;
-    /** value of step moving */
+    onChange: (newValue: [number, number], event: React.ChangeEvent<HTMLInputElement>) => void;
+    /** input step */
     step?: number;
     /** disable input */
     isDisabled?: boolean;

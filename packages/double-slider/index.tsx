@@ -35,16 +35,19 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
   });
 
   const onChangeLocal = useCallback(
-    (index: number, event) => {
+    (event) => {
       const newValue = Number((event.target as HTMLInputElement).value);
-      if (index === 0) {
+      const firstValue = values[0];
+      const secondValue = values[1];
+
+      if (event.target.name === 'firstInput') {
         const minValue = Math.min(newValue, values[1]);
-        onChange(minValue, index, event);
+        onChange([minValue, secondValue], event);
       }
 
-      if (index === 1) {
+      if (event.target.name === 'secondInput') {
         const maxValue = Math.max(newValue, values[0]);
-        onChange(maxValue, index, event);
+        onChange([firstValue, maxValue], event);
       }
     },
     [onChange, values],
@@ -55,18 +58,16 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
       <div className={s.track} />
       <div
         ref={fillRef}
-        className={
-          cn(s.fill,
-            { [s.disabled]: isDisabled })
-        }
+        className={cn(s.fill, { [s.disabled]: isDisabled })}
       />
       <input
         type="range"
         className={s.slider}
+        name="firstInput"
         min={start}
         max={end}
         step={step}
-        onChange={(e) => onChangeLocal(0, e)}
+        onChange={onChangeLocal}
         value={values[0]}
         onMouseMove={setLeft}
         disabled={isDisabled}
@@ -74,10 +75,11 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
       <input
         type="range"
         className={s.slider}
+        name="secondInput"
         min={start}
         max={end}
         step={step}
-        onChange={(e) => onChangeLocal(1, e)}
+        onChange={onChangeLocal}
         value={values[1]}
         onMouseMove={setRight}
         disabled={isDisabled}
