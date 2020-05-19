@@ -140,7 +140,7 @@ const useDND: UseDNDType = ({
         },
       );
     }
-  }, [slidesState, rootRef, dndActive, slideNodeList, goToSlide, propOnMouseUp]);
+  }, [slidesState, lastAdvantage, rootRef, dndActive, slideNodeList, goToSlide, propOnMouseUp]);
 
   useEffect(() => {
     if (!dndActive) return undefined;
