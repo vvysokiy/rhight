@@ -1,0 +1,11 @@
+@import "base.css";
+
+.root {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.slides {
+  display: flex;
+}
