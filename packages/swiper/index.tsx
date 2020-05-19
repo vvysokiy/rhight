@@ -62,6 +62,8 @@ const Swiper: React.FC<ISwiper> = React.memo(({
           transform: `translate3d(${slidesState.translateValue}px, 0, 0)`,
         }}
         onMouseDown={onMouseDown}
+        // @ts-ignore
+        onTouchStart={onMouseDown}
       >
         <Slides
           slideNodeList={slideNodeList}

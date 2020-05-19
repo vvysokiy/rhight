@@ -78,7 +78,8 @@ export const useSwiper = ({
 
   const onMouseDown = useCallback((event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const leftCoordinate = getLeftCoordinate(feedRef, rootRef);
-    shiftX.current = event.clientX - leftCoordinate;
+    // @ts-ignore
+    shiftX.current = (event.clientX || event.targetTouches[0].clientX) - leftCoordinate;
 
     const newState: SlidesStateType = { ...slidesState, translateValue: leftCoordinate };
     const DNDisActive = true;
@@ -89,7 +90,11 @@ export const useSwiper = ({
   }, [slidesState, propOnMouseDown]);
 
   const onMouseMove = useCallback((event: MouseEvent) => {
-    const newState = { ...slidesState, translateValue: event.pageX - shiftX.current };
+    const newState = {
+      ...slidesState,
+      // @ts-ignore
+      translateValue: (event.pageX || event.targetTouches[0].clientX) - shiftX.current,
+    };
     const DNDisActive = true;
     changeSlidesState(newState);
     if (propOnMouseMove) propOnMouseMove(event, newState, DNDisActive);
@@ -113,9 +118,15 @@ export const useSwiper = ({
     if (!dndActive) return undefined;
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
+
+    document.addEventListener('touchmove', onMouseMove);
+    document.addEventListener('touchend', onMouseUp);
     return () => {
       document.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseup', onMouseUp);
+
+      document.removeEventListener('touchmove', onMouseMove);
+      document.removeEventListener('touchend', onMouseUp);
     };
   }, [dndActive, onMouseUp, onMouseMove]);
 
