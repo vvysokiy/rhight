@@ -1,1 +1,41 @@
 @import "base.css";
+
+.btnWrapper {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: calc(100% - 25px);
+
+  &_prev {
+    left: 0;
+  }
+
+  &_next {
+    right: 0;
+  }
+}
+
+.btn {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.icon {
+  color: white;
+
+  &_prev {
+    transform: scale(2) rotate(90deg);
+  }
+
+  &_next {
+    transform: scale(2) rotate(-90deg);
+  }
+}

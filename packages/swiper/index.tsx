@@ -8,13 +8,13 @@ import { Slides } from './Slides';
 import { PrevNextBtn } from './PrevNextBtn';
 import { Pagination } from './Pagination';
 
-import { useSwiper, useStartIndex } from './hooks';
+import { useSwiper, useSlideIndex } from './hooks';
 
 import s from './styles.css';
 
 const Swiper: React.FC<ISwiper> = React.memo(({
   children,
-  startIndex = 0,
+  slideIndex = 0,
   onMouseDown: propOnMouseDown = null,
   onMouseMove: propOnMouseMove = null,
   onMouseUp: propOnMouseUp = null,
@@ -22,8 +22,12 @@ const Swiper: React.FC<ISwiper> = React.memo(({
   style = null,
   className = '',
   pagination = false,
+  paginationStyle = null,
+  paginationClassName = '',
   slotPagination = null,
   prevNext = false,
+  prevBtnClassName = '',
+  nextBtnClassName = '',
   slotPrevNext = null,
   transition = 'all 0.5s ease 0s',
   lastAdvantage = 0,
@@ -46,7 +50,7 @@ const Swiper: React.FC<ISwiper> = React.memo(({
     lastAdvantage,
   });
 
-  useStartIndex({ startIndex, goToSlide });
+  useSlideIndex({ slideIndex, goToSlide });
 
   return (
     <div
@@ -74,6 +78,8 @@ const Swiper: React.FC<ISwiper> = React.memo(({
 
       {pagination && !slotPagination ? (
         <Pagination
+          style={paginationStyle}
+          className={paginationClassName}
           transition={animation}
           currentIndex={slidesState.slideIndex}
         >
@@ -92,6 +98,8 @@ const Swiper: React.FC<ISwiper> = React.memo(({
         <PrevNextBtn
           currentIndex={slidesState.slideIndex}
           goToSlide={goToSlide}
+          prevBtnClassName={prevBtnClassName}
+          nextBtnClassName={nextBtnClassName}
         >
           {children}
         </PrevNextBtn>

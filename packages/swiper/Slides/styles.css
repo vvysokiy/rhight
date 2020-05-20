@@ -3,5 +3,6 @@
 }
 
 .slide {
+  display: flex;
   user-select: none;
 }

@@ -1,6 +1,10 @@
 @import "base.css";
 
 .root {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   overflow: hidden;
   width: 90px;

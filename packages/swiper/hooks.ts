@@ -223,14 +223,18 @@ export const useSwiper = ({
   };
 };
 
-export const useStartIndex = ({
-  startIndex,
+export const useSlideIndex = ({
+  slideIndex,
   goToSlide,
 }: {
-  startIndex: ISwiper['startIndex']
+  slideIndex: ISwiper['slideIndex']
   goToSlide: GoToSlideType,
 }) => {
   useEffect(() => {
-    if (startIndex) goToSlide(startIndex, true);
-  }, [startIndex]); // eslint-disable-line react-hooks/exhaustive-deps
+    goToSlide(slideIndex, true);
+  }, [slideIndex]); // eslint-disable-line react-hooks/exhaustive-deps
+};
+
+export const useKeyPress = () => {
+
 };

@@ -8,10 +8,12 @@ export const Pagination: React.FC<IPagination> = React.memo(({
   children,
   transition,
   currentIndex,
+  style,
+  className,
 }) => (
-  <div className={s.root}>
+  <div style={style} className={cn(s.root, className)}>
     <div
-      className={cn(s.feed)}
+      className={s.feed}
       style={{
         transition,
         transform: `translate3d(${currentIndex * (-18)}px, 0, 0)`,

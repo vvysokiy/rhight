@@ -19,6 +19,10 @@ declare module '@rhight/swiper' {
     transition: ISwiper['transition']
     /** active slide index */
     currentIndex: number
+    /** custom styles for pagination dots */
+    style?: React.CSSProperties
+    /** custom class for pagination dots */
+    className?: ISwiper['paginationClassName']
   }
   export interface IPrevNextBtn {
     children: React.ReactNode[]
@@ -26,6 +30,10 @@ declare module '@rhight/swiper' {
     currentIndex: number
     /** swipe handler */
     goToSlide: (nextIndex: number, withoutAnimation?: boolean) => void
+    /** custom class for prev btn */
+    prevBtnClassName?: string
+    /** custom class for next btn */
+    nextBtnClassName?: string
   }
   export interface ISlides {
     children: React.ReactNode[]
@@ -35,7 +43,7 @@ declare module '@rhight/swiper' {
   export interface ISwiper {
     children: React.ReactNode[]
     /** first slide to display */
-    startIndex?: number,
+    slideIndex?: number,
     /** start DND handler */
     onMouseDown?: (
       event: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -58,10 +66,18 @@ declare module '@rhight/swiper' {
     onSwiped?: (props: SlidesStateType) => void
     /** show/hidden pagination dots */
     pagination?: boolean
+    /** custom styles for pagination dots */
+    paginationStyle?: React.CSSProperties
+    /** custom class for pagination dots */
+    paginationClassName?: string
     /** slot for custom pagination */
     slotPagination?: (paginationProps: IPagination) => React.ReactNode
     /** visibled prev/next btn */
     prevNext?: boolean
+    /** custom class for prev btn */
+    prevBtnClassName?: string
+    /** custom class for next btn */
+    nextBtnClassName?: string
     /** slot for custom prev/next btn */
     slotPrevNext?: (prevNextProps: IPrevNextBtn) => React.ReactNode
     /** slideshow animation */

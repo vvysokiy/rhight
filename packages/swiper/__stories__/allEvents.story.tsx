@@ -6,18 +6,18 @@ import { usePhotos } from './hooks';
 export const AllEvents = () => {
   const slides = usePhotos();
 
-  const [startIndex, changeStartIndex] = React.useState(1);
+  const [slideIndex, changeSlideIndex] = React.useState(1);
 
-  return (
+  return slides.length ? (
     <div style={{ margin: '10px', width: '300px' }}>
       <button
         type="button"
-        onClick={() => changeStartIndex(startIndex + 2)}
+        onClick={() => changeSlideIndex(slideIndex + 2)}
       >
         change start index
       </button>
       <Swiper
-        startIndex={startIndex}
+        slideIndex={slideIndex}
         prevNext
         pagination
         transition="all 0.3s ease 0s"
@@ -27,8 +27,11 @@ export const AllEvents = () => {
         onMouseMove={(...props) => console.log('onMouseMove', props)}
         // eslint-disable-next-line no-console
         onMouseUp={(...props) => console.log('onMouseUp', props)}
-        // eslint-disable-next-line no-console
-        onSwiped={(event) => console.log('onSwiped ->', event)}
+        onSwiped={(event) => {
+          // eslint-disable-next-line no-console
+          console.log('onSwiped ->', event);
+          changeSlideIndex(event.slideIndex);
+        }}
       >
         {slides.map((item) => (
           <img
@@ -44,5 +47,5 @@ export const AllEvents = () => {
         ))}
       </Swiper>
     </div>
-  );
+  ) : null;
 };
