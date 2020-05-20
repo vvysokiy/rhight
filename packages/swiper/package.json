@@ -1,6 +1,6 @@
 {
   "name": "@rhight/swiper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./index.js",
   "dependencies": {
     "classnames": "^2.2.6",
