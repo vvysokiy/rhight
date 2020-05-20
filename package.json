@@ -12,7 +12,7 @@
     "storybook": "start-storybook -p 3000 -s ./cdn/src",
     "deploy-storybook": "storybook-to-ghpages",
     "build": "lerna exec --parallel -- webpack -p --config=../../webpack.config.js",
-    "release": "npm run version-bump && npm run build && lerna exec --parallel -- cp package.json dist && lerna publish --contents dist --yes from-package"
+    "release": "npm run version-bump && npm run build && lerna exec --parallel -- cp package.json dist && lerna exec --parallel -- cp types.ts dist/types.d.ts && lerna publish --contents dist --yes from-package"
   },
   "husky": {
     "hooks": {

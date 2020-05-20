@@ -1,6 +1,7 @@
 {
   "name": "@rhight/checkbox",
   "version": "1.0.3",
+  "main": "./index.js",
   "dependencies": {
     "react": "^16.8.0",
     "react-dom": "^16.8.0"

@@ -1,6 +1,7 @@
 {
   "name": "@rhight/safe-get",
   "version": "1.0.0",
+  "main": "./index.js",
   "publishConfig": {
     "access": "public"
   }
