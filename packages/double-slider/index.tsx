@@ -2,6 +2,7 @@ import React, {
   useCallback,
   useRef,
   useEffect,
+  useState,
 } from 'react';
 import cn from 'classnames';
 
@@ -18,15 +19,17 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
   isDisabled = false,
 }) => {
   const fillRef = useRef(null);
+  const [left, changeLeft] = useState(0);
+  const [right, changeRight] = useState(0);
 
   const setLeft = () => {
     const percent = ((values[0] - start) / (end - start)) * 100;
-    fillRef.current.style.left = `${percent}%`;
+    changeLeft(percent);
   };
 
   const setRight = () => {
     const percent = 100 - ((values[1] - start) / (end - start)) * 100;
-    fillRef.current.style.right = `${percent}%`;
+    changeRight(percent);
   };
 
   useEffect(() => {
@@ -43,9 +46,7 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
       if (event.target.name === 'firstInput') {
         const minValue = Math.min(newValue, values[1]);
         onChange([minValue, secondValue], event);
-      }
-
-      if (event.target.name === 'secondInput') {
+      } else {
         const maxValue = Math.max(newValue, values[0]);
         onChange([firstValue, maxValue], event);
       }
@@ -59,6 +60,10 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
       <div
         ref={fillRef}
         className={cn(s.fill, { [s.disabled]: isDisabled })}
+        style={{
+          left: `${left}%`,
+          right: `${right}%`,
+        }}
       />
       <input
         type="range"
