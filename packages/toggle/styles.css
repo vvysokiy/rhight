@@ -40,7 +40,6 @@
     width: 35px;
     height: 20px;
     border-radius: 10px;
-    cursor: default;
 
     &::after {
       width: 18px;
@@ -71,6 +70,10 @@
 
   &:checked + .customCheckbox::after {
     left: 16px;
+  }
+
+  &:not(:disabled):not(:checked):active + .customCheckbox.mobile {
+    background-color: var(--colorGray);
   }
 
   &:not(:disabled):not(:checked):active + .customCheckbox {
