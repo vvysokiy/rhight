@@ -1,6 +1,5 @@
 import React, {
   useCallback,
-  useRef,
   useEffect,
   useState,
 } from 'react';
@@ -11,7 +10,10 @@ import IconArrow from './svg/arrow.svg';
 
 import s from './styles.css';
 
-const range = (from, to, step = 1) => {
+const LEFT_PAGE = 'LEFT';
+const RIGHT_PAGE = 'RIGHT';
+
+const range = (from: number, to: number, step = 1) => {
   let i = from;
   const arr = [];
 
@@ -30,6 +32,7 @@ const Pagination: React.FC<IPagination> = ({
   pageNeighbours,
 
 }) => {
+  const [pagesArr, setPagesArr] = useState([]);
   const initialArr = Array(totalPages).fill(0).map((item, index) => index + 1);
 
   const onClickNext = useCallback((event) => {
@@ -44,7 +47,16 @@ const Pagination: React.FC<IPagination> = ({
     }
   }, [currentPage, onChange]);
 
-  const fetchPageNumbers = () => {
+  const handleMoveLeft = useCallback((event) => {
+    onChange((currentPage - (pageNeighbours * 2) - 1), event);
+  }, [currentPage, pageNeighbours, onChange]);
+
+  const handleMoveRight = useCallback((event) => {
+    onChange((currentPage + (pageNeighbours * 2) - 1), event);
+  }, [currentPage, pageNeighbours, onChange]);
+
+
+  const fetchPageNumbers = useCallback(() => {
     /**
      * totalNumbers: the total page numbers to show on the control
      * totalBlocks: totalNumbers + 2 to cover for the left(<) and right(>) controls
@@ -72,47 +84,76 @@ const Pagination: React.FC<IPagination> = ({
         // handle: (1) < {5 6} [7] {8 9} (10)
         case (hasLeftSpill && !hasRightSpill): {
           const extraPages = range(startPage - spillOffset, startPage - 1);
-          pages = ['LEFT_PAGE', ...extraPages, ...pages];
+          pages = [LEFT_PAGE, ...extraPages, ...pages];
+          window.console.log(extraPages, 'fuck');
           break;
         }
 
         // handle: (1) {2 3} [4] {5 6} > (10)
         case (!hasLeftSpill && hasRightSpill): {
           const extraPages = range(endPage + 1, endPage + spillOffset);
-          pages = [...pages, ...extraPages, 'RIGHT_PAGE'];
+          pages = [...pages, ...extraPages, RIGHT_PAGE];
           break;
         }
 
         // handle: (1) < {4 5} [6] {7 8} > (10)
         case (hasLeftSpill && hasRightSpill):
         default: {
-          pages = ['LEFT_PAGE', ...pages, 'RIGHT_PAGE'];
+          pages = [LEFT_PAGE, ...pages, RIGHT_PAGE];
           break;
         }
       }
       return [1, ...pages, totalPages];
     }
     return range(1, totalPages);
-  };
+  }, [pageNeighbours, totalPages, currentPage]);
 
   useEffect(() => {
     const result = fetchPageNumbers();
-    window.console.log(result);
-  });
+    setPagesArr(result);
+  }, [fetchPageNumbers]);
 
   return (
     <div className={s.root}>
       <button type="button" aria-label="previous" className={s.prevArrow} disabled={currentPage === 1} onClick={onClickPrev}><IconArrow className={s.icon} /></button>
-      {initialArr.map((elem, index) => (
-        <button
-          key={elem}
-          type="button"
-          className={cn(s.item, { [s.isActive]: currentPage === elem })}
-          onClick={(event) => onChange(elem, event)}
-        >
-          {elem}
-        </button>
-      ))}
+      {pagesArr.map((page, index) => {
+        if (page === LEFT_PAGE) {
+          return (
+            <button
+              key={page}
+              type="button"
+              className={s.item}
+              onClick={handleMoveLeft}
+            >
+              ...
+            </button>
+          );
+        }
+
+        if (page === RIGHT_PAGE) {
+          return (
+            <button
+              key={page}
+              type="button"
+              className={s.item}
+              onClick={handleMoveRight}
+            >
+              ...
+            </button>
+          );
+        }
+
+        return (
+          <button
+            key={page}
+            type="button"
+            className={cn(s.item, { [s.isActive]: currentPage === page })}
+            onClick={(event) => onChange(page, event)}
+          >
+            {page}
+          </button>
+        );
+      })}
       <button type="button" aria-label="next" className={s.nextArrow} disabled={currentPage === totalPages} onClick={onClickNext}><IconArrow className={s.icon} /></button>
     </div>
   );
