@@ -2,8 +2,10 @@ declare module '@rhight/pagination' {
   export interface IPagination {
     /** value of current page */
     currentPage: number;
+    /** start page */
+    start: number;
     /** count of pages */
-    totalPages: number;
+    end: number;
     /** input handler */
     onChange: (newValue: number, event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     /** additional page numbers to show on each side of the current page*/

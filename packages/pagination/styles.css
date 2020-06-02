@@ -1,44 +1,24 @@
 @import 'base.css';
 
-.icon {
-  transition-duration: 200ms;
-  transition-property: fill, opacity;
-}
-
 .prevArrow {
-  @mixin resetBtn;
-
-  width: 35px;
-  height: 35px;
   margin-right: 7px;
-  opacity: 0;
   transform: rotate(90deg);
-
-  &:hover {
-    opacity: 1;
-  }
-
-  &:hover .icon {
-    fill: var(--colorBlue);
-  }
-
-  &:disabled .icon {
-    fill: var(--colorLightGray);
-  }
-
-  &:focus .icon {
-    fill: var(--colorBlue);
-  }
 }
 
+.nextArrow {
+  margin-left: 7px;
+  transform: rotate(-90deg);
+}
+
+.prevArrow,
 .nextArrow {
   @mixin resetBtn;
 
   width: 35px;
   height: 35px;
-  margin-left: 7px;
   opacity: 0;
-  transform: rotate(-90deg);
+  transition-duration: 200ms;
+  transition-property: opacity;
 
   &:hover {
     opacity: 1;
@@ -73,10 +53,18 @@
 }
 
 .item {
+  display: none;
+}
+
+.dots {
+  display: inline-block;
+}
+
+.item,
+.dots {
   @mixin resetBtn;
 
-  display: inline-block;
-  width: 35px;
+  min-width: 35px;
   height: 35px;
   padding: 0 5px;
   border-radius: 50%;
@@ -92,6 +80,10 @@
   &:active {
     background-color: var(--colorLightGray);
   }
+}
+
+.visible {
+  display: inline-block;
 }
 
 .isActive {

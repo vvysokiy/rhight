@@ -7,10 +7,11 @@ export const Default = () => {
   //   setValue(newValue);
   // }, []);
   return (
-    <div style={{ margin: '10px', width: '400px' }}>
+    <div style={{ margin: '10px', width: '600px' }}>
       <Pagination
         currentPage={currentPage}
-        totalPages={10}
+        start={1}
+        end={9999}
         onChange={setCurrentPage}
         pageNeighbours={1}
       />
