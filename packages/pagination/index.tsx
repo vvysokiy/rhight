@@ -1,7 +1,5 @@
 import React, {
   useCallback,
-  useEffect,
-  useState,
   useMemo,
 } from 'react';
 import cn from 'classnames';
@@ -16,12 +14,8 @@ const Pagination: React.FC<IPagination> = ({
   currentPage,
   start,
   end,
-  pageNeighbours,
 
 }) => {
-  const [pagesArr, setPagesArr] = useState([]);
-  // const initialArr = Array(totalPages).fill(0).map((item, index) => index + 1);
-
   const array = useMemo(() => (new Array(end)).fill(0).map((el, index) => start + index),
     [start, end]);
 
@@ -100,14 +94,16 @@ const Pagination: React.FC<IPagination> = ({
             {page}
           </button>
 
-          {(index + 1 === currentPage + 1 && currentPage + 1 <= array.length - 3 && currentPage > 3) ? (
-            <button
-              type="button"
-              className={cn(s.dots, s.rightDots)}
-            >
-              ...
-            </button>
-          ) : null}
+          {(index + 1 === currentPage + 1
+            && currentPage + 1 <= array.length - 3
+            && currentPage > 3) ? (
+              <button
+                type="button"
+                className={cn(s.dots, s.rightDots)}
+              >
+                ...
+              </button>
+            ) : null}
 
           {(index === 3 && currentPage < 4) ? (
             <button
