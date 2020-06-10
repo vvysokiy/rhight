@@ -20,7 +20,6 @@ export const Counter: React.FC<ICounter> = ({
   isMobile = false,
 }) => {
   const letterCounter = value.length;
-
   const wordCounter = counter(value);
 
   return (
@@ -30,10 +29,10 @@ export const Counter: React.FC<ICounter> = ({
     )}
     >
       {counterType === 'words' && (
-        <div>{wordCounter}</div>
+        <div className={s.value}>{wordCounter}</div>
       )}
       {counterType === 'symbols' && (
-        <div>{letterCounter}</div>
+        <div className={s.value}>{letterCounter}</div>
       )}
     </div>
   );

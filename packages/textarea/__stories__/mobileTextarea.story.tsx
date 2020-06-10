@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import Textarea from '@rhight/textarea';
 
-export const Default = () => {
+export const Mobile = () => {
   const [value, setValue] = useState('');
   const onChange = useCallback((newValue: string) => {
     setValue(newValue);
@@ -14,6 +14,7 @@ export const Default = () => {
         header="Header"
         placeholder="Placeholder"
         counterType="words"
+        isMobile
       />
     </div>
   );

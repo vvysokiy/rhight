@@ -6,3 +6,4 @@ export default {
 };
 
 export * from './default.story';
+export * from './mobileTextarea.story';
