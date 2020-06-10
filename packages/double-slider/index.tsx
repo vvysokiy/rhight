@@ -11,7 +11,7 @@ import { IDoubleSlider } from '@rhight/double-slider';
 import s from './styles.css';
 
 const DoubleSlider: React.FC<IDoubleSlider> = ({
-  values,
+  value,
   onChange,
   start,
   end,
@@ -23,12 +23,12 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
   const [right, changeRight] = useState(0);
 
   const setLeft = () => {
-    const percent = ((values[0] - start) / (end - start)) * 100;
+    const percent = ((value[0] - start) / (end - start)) * 100;
     changeLeft(percent);
   };
 
   const setRight = () => {
-    const percent = 100 - ((values[1] - start) / (end - start)) * 100;
+    const percent = 100 - ((value[1] - start) / (end - start)) * 100;
     changeRight(percent);
   };
 
@@ -40,18 +40,17 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
   const onChangeLocal = useCallback(
     (event) => {
       const newValue = Number((event.target as HTMLInputElement).value);
-      const firstValue = values[0];
-      const secondValue = values[1];
+      const [firstValue, secondValue] = value;
 
       if (event.target.name === 'firstInput') {
-        const minValue = Math.min(newValue, values[1]);
+        const minValue = Math.min(newValue, secondValue);
         onChange([minValue, secondValue], event);
       } else {
-        const maxValue = Math.max(newValue, values[0]);
+        const maxValue = Math.max(newValue, firstValue);
         onChange([firstValue, maxValue], event);
       }
     },
-    [onChange, values],
+    [onChange, value],
   );
 
   return (
@@ -73,7 +72,7 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
         max={end}
         step={step}
         onChange={onChangeLocal}
-        value={values[0]}
+        value={value[0]}
         onMouseMove={setLeft}
         disabled={isDisabled}
       />
@@ -85,7 +84,7 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
         max={end}
         step={step}
         onChange={onChangeLocal}
-        value={values[1]}
+        value={value[1]}
         onMouseMove={setRight}
         disabled={isDisabled}
       />

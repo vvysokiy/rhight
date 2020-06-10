@@ -1,7 +1,7 @@
 declare module '@rhight/double-slider' {
   export interface IDoubleSlider {
     /** array of values */
-    values: number[];
+    value: [number, number];
     /** value of min input */
     start: number;
     /** value of max input */

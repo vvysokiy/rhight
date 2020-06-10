@@ -1,17 +1,17 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import DoubleSlider from '@rhight/double-slider';
 
 export const Default = () => {
-  const [values, setValues] = useState([20, 60]);
+  const [value, setValue] = useState<[number, number]>([20, 60]);
 
   return (
     <div style={{ margin: '10px', width: '400px' }}>
       <DoubleSlider
-        values={values}
+        value={value}
         start={0}
         end={100}
         step={1}
-        onChange={setValues}
+        onChange={setValue}
       />
     </div>
   );
