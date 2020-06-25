@@ -43,7 +43,6 @@
   font-family: var(--roboto);
   font-size: 13px;
   height: 35px;
-  border: 1px solid black;
   width: 100%;
 
   &:hover .prevArrow,
@@ -61,7 +60,9 @@
 }
 
 .item,
-.dots {
+.dots,
+.leftDots,
+.rightDots {
   @mixin resetBtn;
 
   min-width: 35px;

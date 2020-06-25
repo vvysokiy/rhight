@@ -1,12 +1,12 @@
 declare module '@rhight/pagination' {
   export interface IPagination {
     /** value of current page */
-    currentPage: number;
+    value: number;
     /** start page */
     start: number;
     /** count of pages */
     end: number;
-    /** input handler */
+    /** pagination handler */
     onChange: (newValue: number, event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   }
 
