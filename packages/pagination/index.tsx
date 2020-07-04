@@ -44,7 +44,6 @@ const Pagination: React.FC<IPagination> = ({
     <div className={s.root}>
       <button
         type="button"
-        aria-label="previous"
         className={s.prevArrow}
         disabled={value === start}
         onClick={onClickPrev}
@@ -110,7 +109,6 @@ const Pagination: React.FC<IPagination> = ({
       ))}
       <button
         type="button"
-        aria-label="next"
         className={s.nextArrow}
         disabled={value === end}
         onClick={onClickNext}
