@@ -3,6 +3,7 @@ import React, {
   useRef,
   useEffect,
   useState,
+  useMemo,
 } from 'react';
 import cn from 'classnames';
 
@@ -18,24 +19,13 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
   step = 1,
   isDisabled = false,
 }) => {
-  const fillRef = useRef(null);
-  const [left, changeLeft] = useState(0);
-  const [right, changeRight] = useState(0);
+  const left = useMemo(() => (
+    ((value[0] - start) / (end - start)) * 100
+  ), [value, start, end]);
 
-  const setLeft = () => {
-    const percent = ((value[0] - start) / (end - start)) * 100;
-    changeLeft(percent);
-  };
-
-  const setRight = () => {
-    const percent = 100 - ((value[1] - start) / (end - start)) * 100;
-    changeRight(percent);
-  };
-
-  useEffect(() => {
-    setLeft();
-    setRight();
-  });
+  const right = useMemo(() => (
+    100 - ((value[1] - start) / (end - start)) * 100
+  ), [value, start, end]);
 
   const onChangeLocal = useCallback(
     (event) => {
@@ -57,7 +47,6 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
     <div className={s.root}>
       <div className={s.track} />
       <div
-        ref={fillRef}
         className={cn(s.fill, { [s.disabled]: isDisabled })}
         style={{
           left: `${left}%`,
@@ -73,7 +62,6 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
         step={step}
         onChange={onChangeLocal}
         value={value[0]}
-        onMouseMove={setLeft}
         disabled={isDisabled}
       />
       <input
@@ -85,7 +73,6 @@ const DoubleSlider: React.FC<IDoubleSlider> = ({
         step={step}
         onChange={onChangeLocal}
         value={value[1]}
-        onMouseMove={setRight}
         disabled={isDisabled}
       />
     </div>
