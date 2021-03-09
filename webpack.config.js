@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const DIR_SRC = path.resolve(__dirname, 'packages');
+const fs = require('fs');
 // const DIR_UTILS = path.resolve(__dirname, 'src/utils');
 // const DIR_CONSTANTS = path.resolve(__dirname, 'src/constants');
 const namespace = '@rhight';
@@ -16,13 +17,16 @@ module.exports = {
   mode: 'production',
   output: {
     path: outputDir,
-    libraryTarget: 'commonjs2',
-    hotUpdateFunction: 'webpackHotUpdateRUI',
+    // libraryTarget: 'commonjs2',
+    libraryTarget: 'umd',
+    globalObject: 'this',
+    // hotUpdateFunction: 'webpackHotUpdateRUI',
     filename: 'index.js',
   },
 
   optimization: {
-    minimize: true,
+    // minimize: true,
+    minimize: false,
   },
 
   module: {
@@ -37,7 +41,7 @@ module.exports = {
         exclude: [
           /node_modules/,
         ],
-        query: {
+        options: {
           babelrc: false,
           presets: [
             ['@babel/preset-env', {
@@ -94,44 +98,22 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
       [namespace]: path.resolve(__dirname, 'packages'),
-      // '@styles': DIR_SRC,
-      // images: path.resolve(__dirname, './src/images'),
-      // '@utils': DIR_UTILS,
-      // '@constants': DIR_CONSTANTS,
     },
-    // plugins: [
-    //   new TsconfigPathsPlugin({ configFile: path.resolve(__dirname, 'tsconfig.json') }),
-    // ],
   },
 
-  // TODO webpack-node-externals
-  // externals: [
-  //   'prop-types',
-  //   'react',
-  //   'react-dom',
-  //   'isomorphic-fetch',
-  //   'lodash.debounce',
-  //   'lodash/isEmpty',
-  //   'classnames',
-  //   'common-tags',
-  //   'zlib',
-  //   'uuid',
-  //   'querystring',
-  //   /^@rambler-components/,
-  //   /^@babel\/runtime/,
-  // ],
 
-  // stats: {
-  //   assets: isVerbose,
-  //   modules: isVerbose,
-  //   colors: isVerbose,
-  //   hash: isVerbose,
-  //   version: isVerbose,
-  //   timings: isVerbose,
-  //   chunks: isVerbose,
-  //   chunkModules: isVerbose,
-  //   entrypoints: isVerbose,
-  //   cached: isVerbose,
-  //   cachedAssets: isVerbose,
-  // },
+  externals: function (ctx, callback) {
+    const packageJson = JSON.parse(fs.readFileSync(path.resolve(ctx.context, 'package.json')));
+    const { peerDependencies } = packageJson;
+    let externalsList = [];
+    if (peerDependencies) externalsList = Object.keys(peerDependencies);
+    console.log('🚀 ~ file: webpack.config.js ~ line 116 ~ peerDependencies', peerDependencies);
+    // The external is a `commonjs2` module located in `@scope/library`
+    callback(null, externalsList, 'commonjs');
+  },
+
+  externals: [
+    'react',
+    'react-dom',
+  ]
 };

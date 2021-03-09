@@ -11,7 +11,8 @@
     "version-bump": "lerna version --conventional-commits --tag-version-prefix='' --changelog-preset eslint",
     "storybook": "start-storybook -p 3000 -s ./cdn/src",
     "deploy-storybook": "storybook-to-ghpages",
-    "build": "lerna exec --parallel -- webpack -p --config=../../webpack.config.js",
+    "dts": "lerna exec --parallel -- tsc --p ../../tsconfig.dts.json",
+    "build": "lerna exec --parallel -- webpack --progress --config=../../webpack.config.js",
     "release": "npm run version-bump && npm run build && lerna exec --parallel -- cp package.json dist && lerna exec --parallel -- cp types.ts dist/types.d.ts && lerna publish --contents dist --yes from-package"
   },
   "husky": {
@@ -63,8 +64,9 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-csstree-validator": "^1.8.0",
     "typescript": "^3.8.3",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "webpack": "^5.24.4",
+    "webpack-cli": "^4.5.0",
+    "webpack-node-externals": "^2.5.2"
   },
   "author": "Vladimir Vysokiy",
   "license": "ISC",

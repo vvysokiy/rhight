@@ -1,8 +1,11 @@
 {
   "name": "@rhight/swiper",
   "version": "1.0.1",
-  "main": "./index.js",
+  "main": "./dist/index.js",
   "dependencies": {
+
+  },
+  "peerDependencies": {
     "classnames": "^2.2.6",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
