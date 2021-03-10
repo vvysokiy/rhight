@@ -2,7 +2,7 @@
   "name": "@rhight/use-scroll-resize",
   "version": "1.0.4",
   "main": "./index.js",
-  "dependencies": {
+  "peerDependencies": {
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "react": "^16.8.0"

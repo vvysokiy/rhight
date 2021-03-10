@@ -2,7 +2,7 @@
   "name": "@rhight/use-closest",
   "version": "1.0.4",
   "main": "./index.js",
-  "dependencies": {
+  "peerDependencies": {
     "react": "^16.8.0"
   },
   "publishConfig": {

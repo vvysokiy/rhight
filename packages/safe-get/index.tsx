@@ -6,7 +6,7 @@ import { SafeGetType } from '@rhight/safe-get';
  * @param getPropFn - Функция возращающая свойство объекта
  * @param fallback - Вернется если произошла ошибка при получении свойства
  */
-const safeGet: SafeGetType = (getPropFn, fallback = null) => {
+export const safeGet: SafeGetType = (getPropFn, fallback = null) => {
   try {
     const result = getPropFn();
     return result || fallback;
@@ -14,5 +14,3 @@ const safeGet: SafeGetType = (getPropFn, fallback = null) => {
     return fallback;
   }
 };
-
-export default safeGet;

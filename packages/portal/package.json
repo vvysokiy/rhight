@@ -2,7 +2,7 @@
   "name": "@rhight/portal",
   "version": "1.0.4",
   "main": "./index.js",
-  "dependencies": {
+  "peerDependencies": {
     "classnames": "^2.2.6",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
