@@ -16,7 +16,7 @@
     "dts-create": "lerna exec -- tsc --p tsconfig.local.json",
     "dts-build": "npm run dts-copy && npm run dts-create && npm run dts-remove",
     "build-components": "lerna exec --parallel -- webpack --progress --config=../../webpack.config.js",
-    "build-remove": "lerna exec --parallel -- rm -fv package-lock.json && lerna exec --parallel -- rm -rf dist & lerna exec --parallel -- rm -rf node_modules",
+    "build-remove": "lerna exec --parallel -- rm -fv package-lock.json && lerna exec --parallel -- rm -rf dist && lerna exec --parallel -- rm -rf node_modules",
     "build": "npm run build-remove && npm run build-components && npm run dts-build",
     "version-bump": "lerna version --conventional-commits --tag-version-prefix='' --changelog-preset eslint",
     "release": "npm run version-bump && npm run build && lerna exec --parallel -- cp package.json dist && lerna publish --contents dist --yes from-package"
