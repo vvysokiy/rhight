@@ -1,9 +1,18 @@
 {
 
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "paths": {
+      "@rhight/*": ["packages/*"],
+    },
     "declaration": true,
     "emitDeclarationOnly": true,
-    "outDir": "dist",
+    "outFile": "./dist/index.d.ts"
   },
+  "include": [
+    "types.ts"
+  ],
+  "exclude": [
+    "*.tsx",
+  ]
 }
