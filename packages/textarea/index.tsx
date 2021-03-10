@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import cn from 'classnames';
 
 import { ITextarea } from '@rhight/textarea';
-import { Counter } from '@rhight/textarea/counter';
+import { Counter } from './counter';
 
 import s from './styles.css';
 
