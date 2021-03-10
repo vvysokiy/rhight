@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>1.0.5 (2021-03-10)</small>
+
+* Fix: master HOTFIX - fix ([5108bff](https://github.com/vvysokiy/rhight/commit/5108bff))
+* Merge pull request #28 from PavelZvonnikov/issue-17 ([295aeef](https://github.com/vvysokiy/rhight/commit/295aeef)), closes [#28](https://github.com/vvysokiy/rhight/issues/28)
+* WIP: issue-17 - fix mobile styles ([921fc07](https://github.com/vvysokiy/rhight/commit/921fc07))
+
+
+
+
+
 ## <small>1.0.4 (2020-05-20)</small>
 
 * WIP: issue-17 -  add mobile ver., fix styles ([cbb09d2](https://github.com/vvysokiy/rhight/commit/cbb09d2))

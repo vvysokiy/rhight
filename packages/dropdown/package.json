@@ -1,6 +1,6 @@
 {
   "name": "@rhight/dropdown",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "./index.js",
   "peerDependencies": {
     "classnames": "^2.2.6",

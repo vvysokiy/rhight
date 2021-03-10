@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>1.0.2 (2021-03-10)</small>
+
+* Fix: master HOTFIX - fix ([bf6d5b3](https://github.com/vvysokiy/rhight/commit/bf6d5b3))
+* Fix: master HOTFIX - fix ([5108bff](https://github.com/vvysokiy/rhight/commit/5108bff))
+
+
+
+
+
 ## <small>1.0.1 (2020-05-20)</small>
 
 * WIP: issue-12 - add counters, fix styles and pops of component ([ee2af45](https://github.com/vvysokiy/rhight/commit/ee2af45))

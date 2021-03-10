@@ -1,6 +1,6 @@
 {
   "name": "@rhight/use-scroll-resize",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "./index.js",
   "peerDependencies": {
     "lodash.debounce": "^4.0.8",
