@@ -21,13 +21,9 @@
     // ".storybook/types.d.ts"
   ],
   "include": [
-    "packages/**/*",
-    // "packages/__tests__/**/*",
-    // "stories/**/*",
+    "packages/**/*"
   ],
   "exclude": [
-    "node_modules",
-    // "packages/**/index.d.ts",
-    // "packages/**/__tests__/*"
+    "node_modules"
   ]
 }

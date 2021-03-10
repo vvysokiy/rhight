@@ -2,7 +2,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { ISwiper, SwiperStateType } from '@rhight/swiper';
+import { ISwiper } from '@rhight/swiper';
 
 import { Slides } from './Slides';
 import { PrevNextBtn } from './PrevNextBtn';

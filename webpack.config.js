@@ -1,24 +1,18 @@
-// const loaderUtils = require('loader-utils');
 const path = require('path');
+const fs = require('fs');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const DIR_SRC = path.resolve(__dirname, 'packages');
-const fs = require('fs');
-// const DIR_UTILS = path.resolve(__dirname, 'src/utils');
-// const DIR_CONSTANTS = path.resolve(__dirname, 'src/constants');
 const namespace = '@rhight';
 const outputPackage = process.env.LERNA_PACKAGE_NAME.slice(`${namespace}/`.length);
-const packageDir = path.resolve(__dirname, 'packages', outputPackage);
+const packageDir = path.resolve(DIR_SRC, outputPackage);
 const outputDir = path.resolve(packageDir, 'dist');
-// const isVerbose = process.argv.includes('--verbose');
 
 module.exports = () => {
   const { peerDependencies } = JSON.parse(fs.readFileSync(path.resolve(packageDir, 'package.json')));
   let externalsList = [];
   if (peerDependencies) {
     externalsList = Object.keys(peerDependencies);
-    console.log('🚀 ~ file: webpack.config.js ~ line 110 ~ externalsList', externalsList);
   }
 
   return {
@@ -33,7 +27,6 @@ module.exports = () => {
 
     optimization: {
       minimize: true,
-      // minimize: false,
     },
 
     module: {
@@ -43,7 +36,6 @@ module.exports = () => {
           loader: 'babel-loader',
           include: [
             DIR_SRC,
-            // DIR_UTILS, DIR_CONSTANTS
           ],
           exclude: [
             /node_modules/,
